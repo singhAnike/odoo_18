@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <!-- Demo dashboard record -->
+    <record id="demo_parent_dashboard" model="parent.dashboard">
+        <field name="name">Parent Dashboard</field>
+    </record>
+</odoo>

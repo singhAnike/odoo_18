@@ -1,0 +1,4 @@
+.env
+odoo.conf
+pyvenv/
+odoo-18-ref/

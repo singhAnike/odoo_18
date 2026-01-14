@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Parent Dashboard Action -->
+    <record id="action_parent_dashboard" model="ir.actions.act_window">
+        <field name="name">Parent Dashboard</field>
+        <field name="res_model">parent.dashboard</field>
+        <field name="view_mode">kanban,form</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Welcome to the Parent Portal!
+            </p>
+            <p>
+                Here you can view information about your children's academic progress.
+            </p>
+        </field>
+    </record>
+
+    <!-- Parent Children View -->
+    <record id="action_parent_children" model="ir.actions.act_window">
+        <field name="name">My Children</field>
+        <field name="res_model">op.student</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="domain">[('user_id', 'in', user.child_ids.ids)]</field>
+        <field name="context">{}</field>
+    </record>
+
+    <!-- Parent Attendance View -->
+    <record id="action_parent_attendance_view" model="ir.actions.act_window">
+        <field name="name">Children Attendance</field>
+        <field name="res_model">op.attendance.line</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('student_id.user_id', 'in', user.child_ids.ids)]</field>
+        <field name="context">{}</field>
+    </record>
+
+    <!-- Dashboard Kanban View -->
+    <record id="view_parent_dashboard_kanban" model="ir.ui.view">
+        <field name="name">parent.dashboard.kanban</field>
+        <field name="model">parent.dashboard</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_dashboard o_parent_dashboard" create="0">
+                <field name="children_count"/>
+                <field name="user_id"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click o_kanban_record_has_image_fill">
+                            <div class="o_kanban_image_fill_left d-none d-md-block">
+                                <div class="o_kanban_image_inner_pic">
+                                    <img alt="Parent" t-att-src="kanban_image('res.users', 'avatar_128', record.user_id.raw_value)"/>
+                                </div>
+                            </div>
+                            <div class="oe_kanban_details">
+                                <div class="o_kanban_record_top">
+                                    <h4 class="o_kanban_record_title">
+                                        Welcome, <t t-esc="record.user_id.value"/>
+                                    </h4>
+                                </div>
+                                <div class="o_kanban_record_body">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <a name="action_parent_children" type="object" class="o_kanban_manage_button_section">
+                                                <div class="o_project_kanban_box d-flex align-items-center">
+                                                    <div class="o_project_kanban_colorpicker flex-grow-0 me-2">
+                                                        <span class="fa fa-users"/>
+                                                    </div>
+                                                    <div class="flex-grow-1">
+                                                        <span class="o_value"><t t-esc="record.children_count.value"/></span>
+                                                        <span class="o_label">Children</span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- Dashboard Form View -->
+    <record id="view_parent_dashboard_form" model="ir.ui.view">
+        <field name="name">parent.dashboard.form</field>
+        <field name="model">parent.dashboard</field>
+        <field name="arch" type="xml">
+            <form string="Parent Dashboard" create="0" edit="0">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="user_id" readonly="1"/>
+                            <field name="children_count" readonly="1"/>
+                        </group>
+                    </group>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_children" type="object" class="oe_stat_button" icon="fa-users">
+                            <field name="children_count" widget="statinfo" string="Children"/>
+                        </button>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

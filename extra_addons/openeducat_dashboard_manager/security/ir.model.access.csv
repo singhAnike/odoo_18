@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_dashboard_announcement_user,dashboard.announcement.user,model_dashboard_announcement,base.group_user,1,1,1,1
+access_dashboard_announcement_portal,dashboard.announcement.portal,model_dashboard_announcement,base.group_portal,1,0,0,0
+access_dashboard_notice_user,dashboard.notice.user,model_dashboard_notice,base.group_user,1,1,1,1
+access_dashboard_notice_portal,dashboard.notice.portal,model_dashboard_notice,base.group_portal,1,0,0,0
