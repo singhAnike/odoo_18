@@ -1,0 +1,57 @@
+.o_web_client {
+    .o_action_manager {
+        .o_action {
+            .o_content {
+                margin: 0.8rem !important;border-radius: 15px; box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);background: #fff !important;
+                @include media-breakpoint-down(md) {
+                    margin: 0 !important;
+                }
+            }
+        }
+    }
+}
+@if $is_used_google_font =="True" {
+    .o_web_client {
+        background-color: red;
+        font-family: $body_google_font_family !important;
+    }
+}
+@if $is_used_google_font =="False" {
+    .o_web_client {
+        background-color: green;
+        font-family: $body_font_family !important;
+    }
+}
+
+/*--body-background-color--*/
+@if $body_background_type == 'bg_color'{
+	.o_web_client {
+		background: $body_background_color;
+	}
+	.o_control_panel {
+		background-color: $body_background_color !important;font-family: $body_font_family !important;
+	}
+	.breadcrumb {
+		background-color: $body_background_color !important;font-family: $body_font_family !important;
+	}
+	.text-muted {
+		color: #adb5bd !important;
+	}
+	.o_onboarding_main {
+		margin: 0.8rem 0.8rem 0;border-radius: 10px;
+	}
+}
+// /*--body-background-img--*/
+@if $body_background_type =='bg_img' {
+    .o_web_client {
+       background: linear-gradient(rgba(252, 251, 255, 0.60), rgba(115, 107, 252, 0.60)), url('/web/image?model=sh.back.theme.config.settings&id=1&field=body_background_image');background-repeat: no-repeat;background-size: cover;font-family: $body_font_family !important;position: relative;
+       &::before {
+          content: "";position: absolute;top: 0;left: 0;width: 100%;height: 100%;background: rgba(255, 255, 255, 0.5) !important;z-index: -1;
+       }
+       .o_action_manager>.o_action {
+          .o_control_panel {
+            background-color: transparent;border-bottom: 0px solid #e0e0e0 !important;
+          }
+       }
+    }
+ }

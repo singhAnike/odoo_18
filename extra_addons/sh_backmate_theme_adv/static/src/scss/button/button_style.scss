@@ -1,0 +1,92 @@
+
+.sh_btn_style {
+    @if $button_style == "style_1" { border-radius: 0 !important; }
+    @if $button_style == "style_2" { border-radius: 5px !important; }
+    @if $button_style == "style_3" { border-radius: 0 10px !important; }
+    @if $button_style == "style_4" { border-radius: 20px !important; }
+}
+.btn:not(.o_arrow_button):not(.o_searchview_facet_label):not(.o_searchview_dropdown_toggler), button:not(.o_arrow_button):not(.dropdown):not(.o_searchview_dropdown_toggler) {
+    &:not(.o_arrow_button) , &:not(.oe_stat_button) , &:not(.o_switch_view ) , &:not(.o_pager_previous ) , &:not(.o_pager_next ) {
+        @if $button_style == "style_1" { border-radius: 0 !important; }
+        @if $button_style == "style_2" { border-radius: 5px !important;
+            &.oe_stat_button , &.o_switch_view , &.o_pager_previous  , &.o_pager_next {border-radius: 0px !important;
+                &:first-child { border-radius: 5px 0 0 5px !important; }
+                &:last-child { border-radius: 0px 5px 5px 0px !important; }
+                &:only-child { border-radius: 5px !important; }
+            }
+        }
+        @if $button_style == "style_3" { border-radius: 0 10px !important;
+            &.oe_stat_button , &.o_switch_view , &.o_pager_previous , &.o_pager_next { border-radius: 0px !important;
+                &:first-child { border-radius: 0 0 0 10px !important; }
+                &:last-child { border-radius: 0px 10px 0 0px !important; 
+                    > .o_button_more  {border-radius: 0px 10px 0 0px !important; }
+                }
+                &:only-child { border-radius: 0 10px !important; }
+            }
+        }
+        @if $button_style == "style_4" {border-radius: 20px !important;
+            &.oe_stat_button , &.o_switch_view , &.o_pager_previous , &.o_pager_next {border-radius: 0px !important;
+                &:first-child { border-radius: 20px 0 0 20px !important; }
+                &:last-child { border-radius: 0px 20px 20px 0px !important; 
+                    > .o_button_more  {border-radius: 0px 20px 20px 0px !important; }
+                }
+                &:only-child { border-radius: 20px !important; }
+            }
+        }
+    }
+}
+.btn-link{ color: $primaryColor !important }
+.btn-primary { background-color: $primaryColor !important;border-color: $primaryColor !important;font-weight: 600;box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+    &:disabled { background-color: $primaryColor;border-color: $primaryColor;font-weight: 600;box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1); }
+}
+.btn-secondary:not(.o_arrow_button) { background-color: $secondaryColor ;border-color: $secondaryColor!important ;font-weight: 600;color: $primaryColor;box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);text-transform: capitalize;
+    &:hover { background-color: $primaryColor;color: #fff !important;border-color: $primaryColor !important;}
+}
+.btn-outline-primary { background: $secondaryColor;border: 1.5px solid $primaryColor !important;box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24) !important;transition: all .5s;color: $primaryColor;
+    &:hover { background-color: $primaryColor;color: #fff;border-color: $primaryColor !important; }
+}
+.btn-outline-secondary {
+    &:not(.oe_stat_button),
+    &:not(.o_searchview_dropdown_toggler),
+    &:not(.o_button_more) { background-color: $secondaryColor ;border-color: $secondaryColor!important ;font-weight: 600;color: $primaryColor;box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);text-transform: capitalize; }
+}
+.btn-secondary:not(.o_arrow_button).active { background-color: $primaryColor;color: #fff !important;border-color: $primaryColor !important }
+.o-form-buttonbox {
+    .o_dropdown_more { box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);padding: 1.2rem;border: 0px;font-weight: 500;color: #6f7e92; }
+    .btn.oe_stat_button { transition: 0.5 all;box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+        .o_button_more { background-color: transparent !important;width: 100%; }
+    }
+}
+.o_main_navbar {
+    .o_menu_sections {
+        a , button {
+            @if $button_style == "style_1" { border-radius: 0 !important; }
+            @if $button_style == "style_2" { border-radius: 5px !important; }
+            @if $button_style == "style_3" { border-radius: 0 10px !important; }
+            @if $button_style == "style_4" { border-radius: 20px !important; }
+        }
+    }
+}
+ // o_statusbar_status scss // 
+ .o_statusbar_status { box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1) !important;
+    .o_arrow_button { padding: 0.3125rem 0.625rem !important;padding-left: 1.5em !important;padding-right: 16px !important;box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1) !important;transition: all .5s;background-color: $secondaryColor;border-color: transparent !important;
+        &.o_arrow_button_current { background-color: $primaryColor !important;border-color: $primaryColor !important;color: #fff !important;
+            &::before { border-left-color: $primaryColor !important; }
+            &::after { border-left-color: $primaryColor !important; }
+        }
+        &:not(.o_arrow_button_current) {
+            &::before { border-left-color: $primaryColor !important; }
+            &::after { border-left-color: $secondaryColor !important; }
+        }
+        &:not(.d-none)::before{ background-color: $primaryColor !important; }
+    } 
+}
+.o_database_list {
+    .btn {
+        @if $button_style == "style_1" { border-radius: 0 !important; }
+        @if $button_style == "style_2" { border-radius: 5px !important; }
+        @if $button_style == "style_3" { border-radius: 0 10px !important; }
+        @if $button_style == "style_4" { border-radius: 20px !important; }
+    }
+}
+

@@ -1,0 +1,1256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+	<t t-name="ThemeConfigurationTemplate">
+		<div class="o_user_menu d-none d-md-block pe-0">
+			<!--<DropdownGroup group="'web-navbar-group'">-->
+				<Dropdown menuClass="'sh_theme_config_template'">
+					<button class="py-1 py-lg-0 sh_backmate_theme_config_template">
+						 <i class="fa fa-gear" role="img" aria-label="Activities"/>
+					</button>
+					<t t-set-slot="content">
+						<!--<DropdownItem>-->
+							<div class="backmate_theme_layout" id="backmate_layout">
+								<div class="theme_header">
+									<h3>Theme Customizations</h3>
+									<i class="fa fa-close close_setting" t-on-click="_click_close_setting"/>
+								</div>
+								<div class="sh_theme_setting_feature" id="pre_theme_color_id">
+									<div class="sh_theme_design" t-on-click="_click_sh_theme_design" data-toggle="collapse" data-target="#preThemeColors" aria-expanded="true" aria-controls="filterFav">
+										<span class="title_config">Theme Template</span>
+									</div>
+									<div class=" sh_plates collapse show" id="preThemeColors">
+										<div class="sh_style_plates_main sh_pre_color_plates">
+										<!--  Color Plates -->
+											<div class="sh_main_div">
+												<input type="hidden" class="current_active_pre_color" value="pre_color_1"/>
+												<input type="hidden" class="current_active_pre_color_pallete"/>
+												<li class="sh_div_plt">
+													<div class="sh_plates_items pre_theme_color_box" t-on-click="_click_pre_theme_color_box"  id="pre_color_1">
+														<input type="radio" name="preThemeColor" checked="checked"/>
+														<i class="fa fa-check-circle"></i>
+														<div class="sh_pre_color_box_1"></div>
+													</div>
+												</li>
+											</div>
+											<div></div>
+										</div>
+									</div>
+								</div>
+								<div class="sh_theme_setting_feature" id="theme_style_id">
+									<div class="sh_theme_design" t-on-click="_click_sh_theme_design" type="button" data-toggle="collapse" data-target="#sh_color_plt" aria-expanded="true" aria-controls="filterFav">
+										<span class="title_config">Menu Style</span>
+									</div>
+									<div class="sh_plates collapse show" id="sh_color_plt">
+										<div class="sh_style_plates_main sh_style_plates">
+										<!--  theme style plates -->
+											<div></div>
+											<div class="sh_main_div">
+												<input type="hidden" class="current_active_style" value="style_2"/>
+												<input type="hidden" class="current_active_style_pallete"/>
+												<li class="sh_div_plt">
+													<div
+														class="sh_plates_items theme_style_box"
+														id="style_1"
+														t-on-click="onSelectMenuStyle">
+														<input
+															type="radio"
+															name="themeStyle"
+															t-att-checked="state.theme_style === 'style_1'"
+														/>
+														<span class="circle fa fa-check-circle"></span>
+														<div class="sh_style_box_1 sh_style_box_main"></div>
+													</div>
+												</li>
+												<li class="sh_div_plt">
+													<div
+														class="sh_plates_items theme_style_box"
+														id="style_2"
+														t-on-click="onSelectMenuStyle">
+														<input
+															type="radio"
+															name="themeStyle"
+															t-att-checked="state.theme_style === 'style_2'"
+														/>
+														<span class="circle fa fa-check-circle"></span>
+														<div class="sh_style_box_2 sh_style_box_main"></div>
+													</div>
+												</li>
+												<li class="sh_div_plt">
+													<div
+														class="sh_plates_items theme_style_box"
+														id="style_3"
+														t-on-click="onSelectMenuStyle">
+														<input
+															type="radio"
+															name="themeStyle"
+															t-att-checked="state.theme_style === 'style_3'"
+														/>
+														<span class="circle fa fa-check-circle"></span>
+														<div class="sh_style_box_3 sh_style_box_main"></div>
+													</div>
+												</li>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="sh_theme_setting_feature" id="color_list_id">
+									<div class="sh_theme_design collapsed" t-on-click="_click_sh_theme_design" type="button"
+                     data-toggle="collapse" data-target="#primaryColors" aria-expanded="true" aria-controls="filterFav">
+										<span class="title_config">Primary-Secondary Colors</span>
+									</div>
+									<div class="sh_plates collapse" id="primaryColors">
+										<table width="100%">
+											<tbody>
+												<tr>
+													<td>
+														<label>Primary Color</label>
+													</td>
+													<td>
+														<input id="primary_color_id" type="color" t-att-value="state.primary_color" t-model="state.primary_color"/>
+													</td>
+													<td>
+														<label>Secondary Color</label>
+													</td>
+													<td>
+														<input id="secondary_color_id" type="color" t-att-value="state.secondary_color" t-model="state.secondary_color" />
+													</td>
+												</tr>
+											<!-- <tr class="gradient_tr"><td><label>Gradient
+											Color</label></td><td><input id="gradient_color"
+											type="color" value="" style="width:
+											50px;"></input></td><td></td><td></td></tr> -->
+											</tbody>
+										</table>
+									</div>
+								</div>
+								<div class="sh_theme_setting_feature" id="color_list_id">
+									<div class="sh_theme_design collapsed" t-on-click="_click_sh_theme_design" type="button" data-toggle="collapse" data-target="#headerColors" aria-expanded="true" aria-controls="filterFav">
+										<span class="title_config">Header Style</span>
+									</div>
+									<div class="sh_plates collapse" id="headerColors">
+										<table width="100%">
+											<tbody>
+												<tr>
+													<td>
+														<label>Background Type</label>
+													</td>
+													<td>
+														<div class="d-flex o_horizontal" role="radiogroup">
+															<div class="form-check o_radio_item me-3">
+																<input type="radio"
+																	   class="form-check-input o_radio_input"
+																	   id="header_color"
+																	   name="header_background_type"
+																	   value="header_color"
+																	   t-model="state.header_background_type"
+																	   t-att-checked="state.header_background_type == 'header_color'"/>
+																<label class="form-check-label o_form_label"
+																	   for="header_color">Color </label>
+															</div>
+															<div class="form-check o_radio_item">
+																<input type="radio"
+																	   class="form-check-input o_radio_input"
+																	   id="header_img"
+																	   name="header_background_type"
+																	   value="header_img"
+																	   t-model="state.header_background_type"
+																	   t-att-checked="state.header_background_type == 'header_img'"/>
+																<label class="form-check-label o_form_label"
+																	   for="header_img">Image </label>
+															</div>
+														</div>
+													</td>
+												</tr>
+												<tr>
+													<td>
+														<label>Background Color/Image</label>
+													</td>
+													<td>
+														<t t-if="state.header_background_type == 'header_color'">
+															<input id="header_background_color" type="color" t-att-value="state.header_background_color" t-model="state.header_background_color"/>
+														</t>
+														<t t-else="">
+															<form method="POST" enctype="multipart/form-data" id="header_background_img">
+																<input type="file" name="header_background_img" id="header_background_img" t-on-change="uploadBackgroundImage"/>
+															</form>
+														</t>
+													</td>
+												</tr>
+												<tr>
+													<td>
+														<label>Font Color</label>
+													</td>
+													<td>
+														<input id="header_font_color" type="color" t-att-value="state.header_font_color" t-model="state.header_font_color"/>
+													</td>
+												</tr>
+												<tr>
+													<td>
+														<label>Navbar Style</label>
+													</td>
+													<td>
+														<div class="d-flex o_horizontal" role="radiogroup">
+															<div class="form-check o_radio_item me-3">
+																<input type="radio"
+																	   class="form-check-input o_radio_input"
+																	   id="navbar_style_collapsed" name="navbar_style"
+																	   value="collapsed"
+																	   t-model="state.navbar_style"
+																	   t-att-checked="state.navbar_style === 'collapsed'"/>
+																<label class="form-check-label o_form_label"
+																	   for="navbar_style_collapsed">Collapsed </label>
+															</div>
+															<div class="form-check o_radio_item">
+																<input type="radio"
+																	   class="form-check-input o_radio_input"
+																	   id="navbar_style_expanded" name="navbar_style"
+																	   value="expanded"
+																	   t-model="state.navbar_style"
+																	   t-att-checked="state.navbar_style === 'expanded'"/>
+																<label class="form-check-label o_form_label"
+																	   for="navbar_style_expanded">Expanded </label>
+															</div>
+														</div>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+								<div class="sh_theme_setting_feature" id="color_list_id">
+									<div class="sh_theme_design collapsed" t-on-click="_click_sh_theme_design" type="button"
+                     data-toggle="collapse" data-target="#headerColors" aria-expanded="true" aria-controls="filterFav">
+										<span class="title_config">Body Style</span>
+									</div>
+									<div class="sh_plates collapse" id="headerColors">
+										<table width="100%">
+											<tbody>
+												<tr>
+													<td>
+														<label>Background Type</label>
+													</td>
+													<td>
+														<div class="d-flex o_horizontal" role="radiogroup">
+															<div class="form-check o_radio_item me-3">
+																<input type="radio" id="bg_color"
+																	   class="form-check-input o_radio_input me-2"
+																	   name="body_background_type"
+																	   value="bg_color"
+																	   t-model="state.body_background_type"
+																	   t-att-checked="state.body_background_type === 'bg_color'"/>
+																<label class="form-check-label o_form_label"
+																	   for="bg_color">Color </label>
+															</div>
+															<div class="form-check o_radio_item">
+																<input type="radio" id="bg_img"
+																	   class="form-check-input o_radio_input me-2"
+																	   name="body_background_type"
+																	   value="bg_img"
+																	   t-model="state.body_background_type"
+																       t-att-checked="state.body_background_type === 'bg_img'"/>
+																<label class="form-check-label o_form_label"
+																	   for="bg_img">Image </label>
+															</div>
+														</div>
+													</td>
+												</tr>
+												<tr>
+													<td>
+														<label>Background Color/Image</label>
+													</td>
+													<td>
+														<t t-if="state.body_background_type == 'bg_color'">
+															<input id="body_background_color" type="color" t-model="state.body_background_color" t-att-value="state.body_background_color"/>
+														</t>
+														<t t-else="">
+														<form method="POST" enctype="multipart/form-data" id="body_background_img">
+															<input type="file" name="body_background_img" id="body_background_img" t-on-change="uploadBackgroundImage"/>
+														</form>
+														</t>
+													</td>
+												</tr>
+												<tr>
+													<td>
+														<label>Font Family</label>
+													</td>
+													<td>
+														<select class="o_input" id="body_font_family" t-model="state.body_font_family">
+															<t t-foreach="[['Roboto','Roboto'],['Raleway','Raleway'],['Poppins','Poppins'],['Oxygen','Oxygen'],['OpenSans','OpenSans'],['KoHo','KoHo'],['Ubuntu','Ubuntu'],['custom_google_font','Custom Google Font']]" t-as="font_family" t-key="font_family">
+																<option class="text-center" t-att-value="font_family[0]" t-esc="font_family[1]" t-att-selected="font_family[0] == state.body_font_family"/>
+															</t>
+														</select>
+													</td>
+												</tr>
+												<t t-if="state.body_font_family == 'custom_google_font'">
+													<tr>
+														<td>
+															<label id="body_google_font_family_label">Google Font Family</label>
+														</td>
+														<td>
+															<input id="body_google_font_family" type="text" value="state.body_google_font_family" t-model="state.body_google_font_family"/>
+														</td>
+													</tr>
+												</t>
+											</tbody>
+										</table>
+									</div>
+								</div>
+								<div class="sh_theme_setting_feature" id="button_style_id">
+									<div class="sh_theme_design" t-on-click="_click_sh_theme_design" data-toggle="collapse"
+                     data-target="#themeColors" aria-expanded="true" aria-controls="filterFav">
+										<span class="title_config">Button Style</span>
+									</div>
+									<div class="sh_plates collapse" id="themeColors">
+										<div class="sh_style_plates_main sh_color_plates">
+										<!--  Color Plates -->
+											<div></div>
+											<div class="sh_main_div">
+												<t t-foreach="['style_1', 'style_2', 'style_3', 'style_4']" t-as="style" t-key="style">
+														<li class="sh_div_plt">
+															<div
+																class="sh_plates_items theme_style_box"
+																t-att-id="style"
+																t-on-click="onSelectButtonStyle">
+																<input
+																	type="radio"
+																	name="button_style"
+																	t-att-checked="state.button_style === style"
+																/>
+																<span class="circle fa fa-check"></span>
+																<div class="sh_style_box sh_button_style" t-att-class="'sh_form_element_box_' + style.split('_')[1]">
+																	<img
+																		t-att-src="'/sh_backmate_theme_adv/static/src/img/button_style/' + style.split('_')[1] + '.svg'"
+																	/>
+																</div>
+															</div>
+														</li>
+													</t>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="sh_theme_setting_feature" id="separator_style_id">
+									<div class="sh_theme_design collapsed" t-on-click="_click_sh_theme_design" type="button"
+                     data-toggle="collapse"
+                     data-target="#sh_color_plt" aria-expanded="true" aria-controls="filterFav">
+										<span class="title_config">Separator Style</span>
+									</div>
+									<div class="sh_plates collapse" id="sh_color_plt">
+										<div class="sh_style_plates_main sh_style_plates">
+										<!--  theme style plates -->
+											<div></div>
+											<div class="sh_main_div">
+												<t t-foreach="['style_1', 'style_2', 'style_3', 'style_4', 'style_5', 'style_6', 'style_7']" t-as="style" t-key="style">
+														<li class="sh_div_plt">
+															<div
+																class="sh_plates_items theme_style_box"
+																t-att-id="style"
+																t-on-click="onSelectSeparatorStyle">
+																<input
+																	type="radio"
+																	name="separator_style"
+																	t-att-checked="state.separator_style === style"
+																/>
+																<span class="circle fa fa-check"></span>
+																<div class="sh_style_box" t-att-class="'sh_form_element_box_' + style.split('_')[1]">
+																	<img
+																		t-att-src="'/sh_backmate_theme_adv/static/src/img/separator/' + style.split('_')[1] + '.svg'"
+																	/>
+																</div>
+															</div>
+														</li>
+													</t>
+											</div>
+										</div>
+										<table width="100%">
+											<tbody>
+												<tr>
+													<td>
+														<label>Separator Color</label>
+													</td>
+													<td>
+														<input id="separator_color" type="color" t-on-change="on_change_separator_color" t-att-value="state.separator_color"/>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+								<div class="sh_theme_setting_feature" id="kanban_style_id">
+									<div class="sh_theme_design" t-on-click="_click_sh_theme_design" data-toggle="collapse"
+                     data-target="#themeColors" aria-expanded="true" aria-controls="filterFav">
+										<span class="title_config">Kanban Box Style</span>
+									</div>
+									<div class="sh_plates collapse" id="themeColors">
+										<div class="sh_style_plates_main sh_color_plates">
+										<!--  Color Plates -->
+											<div></div>
+											<div class="sh_main_div">
+											<t t-foreach="['style_1', 'style_2', 'style_3', 'style_4']" t-as="style" t-key="style">
+											<li class="sh_div_plt">
+												<div class="sh_plates_items theme_style_box"
+													 t-att-id="style"
+													 t-on-click="onSelectKanbanBoxStyle">
+												<input type="radio"
+													   name="kanban_style"
+													   t-att-checked="state.kanban_box_style === style"/>
+													<span class="circle fa fa-check"></span>
+													<div class="sh_style_box sh_kanban_view_style" t-att-class="'sh_form_element_box_' + style.split('_')[1]">
+												<img t-att-src="'/sh_backmate_theme_adv/static/src/img/kanban_view/' + style.split('_')[1] + '.svg'"/>
+												</div>
+												</div>
+											</li>
+											</t>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="sh_theme_setting_feature" id="color_list_id">
+									<div class="sh_theme_design collapsed" t-on-click="_click_sh_theme_design" type="button"
+                     data-toggle="collapse" data-target="#sidebarStyle" aria-expanded="true" aria-controls="filterFav">
+										<span class="title_config">Sidebar</span>
+									</div>
+									<div class="sh_plates collapse" id="sidebarStyle">
+										<table width="100%">
+											<tbody>
+												<tr>
+													<td>
+														<label>Sidebar Background Style</label>
+													</td>
+													<td colspan="3">
+														<div class="d-flex o_horizontal" role="radiogroup">
+															<div class="form-check o_radio_item me-3">
+																<input type="radio"
+																	   class="form-check-input o_radio_input me-2"
+																	   id="sidebar_color"
+																	   name="sidebar_background_style"
+																	   value="color"
+																	   t-model="state.sidebar_background_style"
+																	   t-att-checked="state.sidebar_background_style == 'color'"/>
+																<label class="form-check-label o_form_label"
+																	   for="sidebar_color">Color </label>
+															</div>
+															<div class="form-check o_radio_item">
+																<input type="radio"
+																	   class="form-check-input o_radio_input me-2"
+																	   id="sidebar_image"
+																	   name="sidebar_background_style"
+																	   value="image"
+																	   t-model="state.sidebar_background_style"
+																	   t-att-checked="state.sidebar_background_style == 'image'"/>
+																<label class="form-check-label o_form_label"
+																	   for="sidebar_image">Image </label>
+															</div>
+														</div>
+													</td>
+												</tr>
+												<tr>
+													<td>
+														<label>Background Color / Image</label>
+													</td>
+													<td>
+														<t t-if="state.sidebar_background_style == 'color'">
+															<input id="sidebar_background_color" type="color" t-att-value="state.sidebar_background_color" t-model="state.sidebar_background_color"/>
+														</t>
+														<t t-else="">
+															<form method="POST" enctype="multipart/form-data" id="sidebar_background_img">
+																<input type="file" name="sidebar_background_img" id="sidebar_background_img" t-on-change="uploadBackgroundImage"/>
+															</form>
+														</t>
+													</td>
+												</tr>
+												<tr>
+													<td>
+														<label>Font Color</label>
+													</td>
+													<td>
+														<input id="sidebar_font_color" type="color" t-att-value="state.sidebar_font_color" t-model="state.sidebar_font_color"/>
+													</td>
+												</tr>
+												<tr>
+													<td>
+														<label>Sidebar View Style</label>
+													</td>
+													<td colspan="3">
+														<div class="d-flex o_horizontal" role="radiogroup">
+															<div class="form-check o_radio_item me-3">
+																<input type="radio"
+																	   class="form-check-input o_radio_input me-2"
+																	   id="sidebar_collapsed"
+																	   name="sidebar_collapse_style"
+																	   value="collapsed"
+																	   t-model="state.sidebar_collapse_style"
+																	   t-att-checked="state.sidebar_collapse_style == 'collapsed'"/>
+																<label class="form-check-label o_form_label"
+																	   for="sidebar_collapsed">Collapsed </label>
+															</div>
+															<div class="form-check o_radio_item">
+																<input type="radio"
+																	   class="form-check-input o_radio_input me-2"
+																	   id="sidebar_expanded"
+																	   name="sidebar_collapse_style"
+																	   value="expanded"
+																	   t-model="state.sidebar_collapse_style"
+																	   t-att-checked="state.sidebar_collapse_style == 'expanded'"/>
+																<label class="form-check-label o_form_label"
+																	   for="sidebar_expanded">Expanded </label>
+															</div>
+														</div>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+								<div class="sh_theme_setting_feature" id="listview_table_id">
+									<div class="sh_theme_design collapsed" t-on-click="_click_sh_theme_design" type="button"
+                     data-toggle="collapse" data-target="#listViewTable" aria-expanded="true" aria-controls="filterFav">
+										<span class="title_config">List View Table</span>
+									</div>
+									<div class="sh_plates collapse" id="listViewTable">
+										<table width="100%">
+											<tbody>
+												<tr>
+													<td>
+														<label>Is Predefined List View?</label>
+													</td>
+													<td>
+														<div class="o-checkbox form-check">
+															<input class="form-check-input"
+																   id="predefined_list_view_boolean"
+																   type="checkbox"
+																   t-att-value="state.predefined_list_view_boolean"
+																   t-model="state.predefined_list_view_boolean"
+																	t-att-checked="state.predefined_list_view_boolean"/>
+															<label class="form-check-label"
+																   for="predefined_list_view_boolean"/>
+														</div>
+													</td>
+												</tr>
+												<t t-if="state.predefined_list_view_boolean">
+													<tr class="predefined_list_view_style">
+													<div class="sh_style_plates_main sh_color_plates">
+														<!--  Color Plates -->
+														<div></div>
+														<div class="sh_main_div">
+														<t t-foreach="['style_1', 'style_2', 'style_3', 'style_4', 'style_5']"
+														   t-as="style"
+														   t-key="style">
+														<li class="sh_div_plt">
+															<div class="sh_plates_items theme_style_box"
+																 t-att-id="style"
+																 t-on-click="onSelectPreDefinedListviewStyle">
+															<input type="radio"
+																   name="listview_style"
+																   t-att-checked="state.predefined_list_view_style === style"/>
+																<span class="circle fa fa-check"></span>
+																<div class="sh_style_box sh_predefined_list_view_style" t-att-class="'sh_form_element_box_' + style.split('_')[1]">
+															<img t-att-src="'/sh_backmate_theme_adv/static/src/img/predefine_list_view/' + style.split('_')[1] + '.svg'"/>
+															</div>
+															</div>
+														</li>
+														</t>
+														</div>
+													</div>
+												</tr>
+												</t>
+												<t t-else="">
+													<tr class="list_view_border_even_row_color">
+														<td>
+															<label>List View Border</label>
+														</td>
+														<td>
+															<select class="o_input" id="list_view_border" t-model="state.list_view_border">
+															<t t-foreach="[['bordered','Bordered'],['without_border','Without Border']]" t-as="list_view_border" t-key="list_view_border">
+																<option class="text-center" t-att-value="list_view_border[0]" t-esc="list_view_border[1]" t-att-selected="list_view_border[0] == state.list_view_border"/>
+															</t>
+														</select>
+														</td>
+														<td>
+															<label>Even Row Color</label>
+														</td>
+														<td>
+															<input id="list_view_even_row_color" t-model="state.list_view_even_row_color" t-att-value="state.list_view_even_row_color" type="color"/>
+														</td>
+													</tr>
+													<tr class="row_hover_odd_row_color">
+														<td>
+															<label>Rows Hover?</label>
+														</td>
+														<td>
+															<div class="o-checkbox form-check">
+																<input class="form-check-input"
+																	   id="list_view_is_hover_row"
+																	   t-model="state.list_view_is_hover_row"
+																	   t-att-value="state.list_view_is_hover_row"
+																	   t-att-checked="state.list_view_is_hover_row"
+																	   type="checkbox"/>
+																<label class="form-check-label" for="list_view_is_hover_row"/>
+															</div>
+														</td>
+														<td>
+															<label>Odd Row Color</label>
+														</td>
+														<td>
+															<input id="list_view_odd_row_color" type="color" t-att-value="state.list_view_odd_row_color" t-model="state.list_view_odd_row_color"/>
+														</td>
+													</tr>
+													<t t-if="state.list_view_is_hover_row">
+														<tr class="is_row_color_hover">
+														<td>
+															<label>Hover Background Color</label>
+														</td>
+														<td>
+															<input id="list_view_hover_bg_color" type="color" t-att-value="state.list_view_hover_bg_color" t-model="state.list_view_hover_bg_color"/>
+														</td>
+														<td></td>
+														<td></td>
+													</tr>
+													</t>
+
+												</t>
+											</tbody>
+										</table>
+									</div>
+								</div>
+								<div class="sh_theme_setting_feature" id="login_style_id">
+									<div class="sh_theme_design collapsed" t-on-click="_click_sh_theme_design" type="button"
+                     data-toggle="collapse"
+                     data-target="#sh_color_plt" aria-expanded="true" aria-controls="filterFav">
+										<span class="title_config">Login Style</span>
+									</div>
+									<div class="sh_plates collapse" id="sh_color_plt">
+										<div class="sh_style_plates_main sh_style_plates">
+										<!--  theme style plates -->
+											<div></div>
+											<div class="sh_main_div">
+														<t t-foreach="['style_0', 'style_1', 'style_2', 'style_3', 'style_4']"
+														   t-as="style"
+														   t-key="style">
+														<li class="sh_div_plt">
+															<div class="sh_plates_items theme_style_box"
+																 t-att-id="style"
+																 t-on-click="onSelectLoginPageStyle">
+															<input type="radio"
+																   name="login_style"
+																   t-att-checked="state.login_page_style === style"/>
+																<span class="circle fa fa-check"></span>
+																<div class="sh_style_box sh_login_page_box" t-att-class="'sh_form_element_box_' + style.split('_')[1]">
+															<img t-att-src="'/sh_backmate_theme_adv/static/src/img/login_style/' + style.split('_')[1] + '.svg'"/>
+															</div>
+															</div>
+														</li>
+														</t>
+											</div>
+										</div>
+										<table width="100%">
+											<tbody>
+												<t t-if="state.login_page_style == 'style_1'">
+													<tr class="login_page_style_with_comp_logo_tr">
+													<td>
+														<label class="login_page_style_comp_logo" style="white-space: nowrap;margin-right: 8px;">Company Logo ?</label>
+													</td>
+													<td style="padding-top: 8px;">
+														<div class="o-checkbox form-check">
+															<input class="form-check-input"
+																   id="login_page_style_comp_logo" type="checkbox"
+																   t-att-value="state.login_page_style_comp_logo"
+																   t-model="state.login_page_style_comp_logo"
+																   t-att-checked="state.login_page_style_comp_logo"/>
+															<label class="form-check-label" for="login_page_style_comp_logo"/>
+														</div>
+													</td>
+												</tr>
+												</t>
+												<t t-if="state.login_page_style == 'style_3' or state.login_page_style == 'style_4'">
+													<tr>
+													<td>
+														<label class="login_bg_type">Background Type</label>
+													</td>
+													<td>
+														<div class="login_bg_type">
+															<div class="d-flex o_horizontal " role="radiogroup">
+																<div class="form-check o_radio_item me-3">
+																	<input type="radio" id="login_bg_color"
+																		   class="form-check-input o_radio_input me-2"
+																		   name="login_page_background_type"
+																		   value="bg_color"
+																		   t-model="state.login_page_background_type"
+																		   t-att-checked="state.login_page_background_type == 'bg_color'"/>
+																	<label class="form-check-label o_form_label"
+																		   for="login_bg_color">Color </label>
+																</div>
+																<div class="form-check o_radio_item">
+																	<input type="radio" id="login_bg_img"
+																		   class="form-check-input o_radio_input me-2"
+																		   name="login_page_background_type"
+																		   value="bg_img"
+																		   t-model="state.login_page_background_type"
+																		   t-att-checked="state.login_page_background_type == 'bg_img'"/>
+																	<label class="form-check-label o_form_label"
+																		   for="login_bg_img">Image </label>
+																</div>
+															</div>
+														</div>
+													</td>
+													<td>
+														<label class="login_bg_img_title">Background Color/Image</label>
+													</td>
+													<td>
+														<t t-if="state.login_page_background_type == 'bg_color'">
+															<input class="login_bg_color" id="login_page_background_color" type="color" t-model="state.login_page_background_color" t-att-value="state.login_page_background_color"/>
+														</t>
+														<t t-else="">
+															<form class="login_bg_img" method="POST" enctype="multipart/form-data" id="login_page_background_img">
+																<input type="file" name="login_page_background_img" id="login_page_background_img" t-on-change="uploadBackgroundImage"/>
+															</form>
+														</t>
+													</td>
+												</tr>
+												</t>
+												<t t-if="state.login_page_style == 'style_2'">
+													<tr>
+													<td>
+														<label class="login_box_color">Box Color</label>
+													</td>
+													<td>
+														<input class="login_box_color" id="login_page_box_color"
+															   type="color" t-att-value="state.login_page_box_color"
+															   t-att-checked="state.login_page_box_color"
+															   t-model="state.login_page_box_color"/>
+													</td>
+													<t t-if="state.login_page_style == 'style_2'">
+														<td>
+															<label class="login_banner_img">Banner Image</label>
+														</td>
+														<td class="login_banner_img">
+															<form method="POST" enctype="multipart/form-data" id="login_page_banner_img">
+																<input type="file" name="login_page_banner_img" id="login_page_banner_img" t-on-change="uploadBackgroundImage"/>
+															</form>
+														</td>
+													</t>
+												</tr>
+												</t>
+												<t t-if="state.login_page_style == 'style_3' or state.login_page_style == 'style_4'">
+													<tr>
+													<td>
+														<label class="company_icon_image">Company Icon Image</label>
+													</td>
+													<td class="company_icon_image">
+														<form method="POST" enctype="multipart/form-data" id="login_page_icon_img">
+															<input type="file" name="login_page_icon_img" id="login_page_icon_img" t-on-change="uploadBackgroundImage"/>
+														</form>
+													</td>
+														<t t-if="state.login_page_style == 'style_3'">
+													<td>
+														<label class="company_name_image">Company Name Logo</label>
+													</td>
+															<td class="company_name_image">
+														<form method="POST" enctype="multipart/form-data"
+															  id="login_page_icon_img_long">
+															<input type="file" name="login_page_icon_img_long" id="login_page_icon_img_long" t-on-change="uploadBackgroundImage"/>
+														</form>
+													</td>
+														</t>
+												</tr>
+												</t>
+											</tbody>
+										</table>
+									</div>
+								</div>
+								<div class="sh_theme_setting_feature" id="color_list_id">
+									<div class="sh_theme_design collapsed" t-on-click="_click_sh_theme_design"
+										 type="button"
+										 data-toggle="collapse" data-target="#loginPopup" aria-expanded="true"
+										 aria-controls="filterFav">
+										<span class="title_config">Progressbar</span>
+									</div>
+									<div class="sh_plates collapse" id="loginPopup">
+										<table width="100%">
+											<tbody>
+												<tr>
+													<td>
+														<label>Progress Style</label>
+													</td>
+													<td>
+														<select class="o_input" id="progress_style" t-model="state.progress_style">
+															<t t-foreach="[['none','None'],['style_1','Style 1']]" t-as="progress_style" t-key="progress_style">
+																<option class="text-center" t-att-value="progress_style[0]" t-esc="progress_style[1]" t-att-selected="progress_style[0] == state.progress_style"/>
+															</t>
+														</select>
+													<!--<select
+													class="o_input" id="progress_style">
+															<option value="style_1">Style 1</option>
+															<option value="none">None</option>
+														</select>-->
+													</td>
+													<td></td>
+													<td></td>
+												</tr>
+												<t t-if="state.progress_style == 'style_1'">
+													<tr id="progress_color_height">
+													<td>
+														<label>Progress Color</label>
+													</td>
+													<td>
+														<input class="" id="progress_color" type="color" t-att-value="state.progress_color" t-model="state.progress_color"/>
+													</td>
+													<td>
+														<label>Progress Height</label>
+													</td>
+													<td>
+														<input class="" id="progress_height" type="text" t-att-value="state.progress_height" t-model="state.progress_height"/>
+													</td>
+												</tr>
+												</t>
+											</tbody>
+										</table>
+									</div>
+								</div>
+								<div class="sh_theme_setting_feature" id="color_list_id">
+									<div class="sh_theme_design collapsed" t-on-click="_click_sh_theme_design" type="button"
+                     data-toggle="collapse" data-target="#stickyPopup" aria-expanded="true" aria-controls="filterFav">
+										<span class="title_config">Sticky</span>
+									</div>
+									<div class="sh_plates collapse" id="stickyPopup">
+										<table width="100%">
+											<tbody>
+												<tr>
+													<td>
+														<label>Form Status Bar</label>
+													</td>
+													<td>
+														<div class="o-checkbox form-check">
+															<input class="form-check-input" id="is_sticky_form" name="is_sticky_form" t-model="state.is_sticky_form" type="checkbox" t-att-checked="state.is_sticky_form" t-att-value="state.is_sticky_form"/>
+															<label class="form-check-label" for="is_sticky_form"/>
+														</div>
+													</td>
+												<!--<td><label>Chatter</label></td><td><input
+												id="is_sticky_chatter" type="checkbox"
+												value=""></input></td>-->
+													<td>
+														<label>List Inside Form</label>
+													</td>
+													<td>
+														<div class="o-checkbox form-check">
+															<input class="form-check-input" id="is_sticky_list_inside_form" type="checkbox" t-model="state.is_sticky_list_inside_form" t-att-value="state.is_sticky_list_inside_form" t-att-checked="state.is_sticky_list_inside_form"/>
+															<label class="form-check-label" for="is_sticky_list_inside_form"/>
+														</div>
+													</td>
+												</tr>
+												<tr>
+													<td>
+														<label>List View Footer</label>
+													</td>
+													<td>
+														<div class="o-checkbox form-check">
+															<input class="form-check-input" id="is_sticky_list" type="checkbox" t-model="state.is_sticky_list" t-att-value="state.is_sticky_list" t-att-checked="state.is_sticky_list"/>
+															<label class="form-check-label" for="is_sticky_list"/>
+														</div>
+													</td>
+												</tr>
+												<tr>
+													<td>
+														<label>Pivot View</label>
+													</td>
+													<td>
+														<div class="o-checkbox form-check">
+															<input class="form-check-input" id="is_sticky_pivot" type="checkbox" t-model="state.is_sticky_pivot" t-att-value="state.is_sticky_pivot" t-att-checked="state.is_sticky_pivot"/>
+															<label class="form-check-label" for="is_sticky_pivot"/>
+														</div>
+													</td>
+													<td>
+														<label></label>
+													</td>
+													<td></td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+								<div class="sh_theme_setting_feature" id="color_list_id">
+									<div class="sh_theme_design collapsed" type="button" data-bs-toggle="collapse"
+                     data-bs-target="#chatterStyle" aria-expanded="true" aria-controls="filterFav">
+										<span class="title_config">Chatter Position Style</span>
+									</div>
+									<div class="sh_plates collapse" id="chatterStyle">
+										<table width="100%">
+											<tbody>
+												<tr>
+													<td>
+														<label>Chatter Position</label>
+													</td>
+													<td>
+													<!--<div
+													class="chatter_type">
+															<div class="d-flex o_horizontal" role="radiogroup">
+																<div class="form-check o_radio_item me-3">
+																	<input type="radio"
+																		   class="form-check-input o_radio_input me-2"
+																		   id="chatter_type_bottom" name="chatter_type"
+																		   value="bottom"
+																		   checked="checked"/>
+																	<label class="form-check-label o_form_label"
+																		   for="chatter_type_bottom">Bottom</label>
+																</div>
+																<div class="form-check o_radio_item">
+																	<input type="radio"
+																		   class="form-check-input o_radio_input me-2"
+																		   id="chatter_type_sided" name="chatter_type"
+																		   value="sided"/>
+																	<label class="form-check-label o_form_label"
+																		   for="chatter_type_sided">Sided</label>
+																</div>
+															</div>
+														</div>-->
+														<div class="chatter_type">
+															<div class="d-flex o_horizontal" role="radiogroup">
+																<div class="form-check o_radio_item me-3">
+																	<input type="radio"
+																		   class="form-check-input o_radio_input me-2"
+																		   id="chatter_type_bottom"
+																		   name="chatter_type"
+																		   value="bottom"
+																		   t-on-change="onChatterTypeChange"
+																		   t-att-checked="state.chatterType === 'bottom'"/>
+																	<label class="form-check-label o_form_label" for="chatter_type_bottom">Bottom</label>
+																</div>
+																<div class="form-check o_radio_item">
+																	<input type="radio"
+																		   class="form-check-input o_radio_input me-2"
+																		   id="chatter_type_sided"
+																		   name="chatter_type"
+																		   value="sided"
+																		   t-on-change="onChatterTypeChange"
+																		   t-att-checked="state.chatterType === 'sided'"/>
+																	<label class="form-check-label o_form_label" for="chatter_type_sided">Sided</label>
+																</div>
+															</div>
+														</div>
+													</td>
+													<td></td>
+													<td></td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+								<div class="sh_theme_setting_feature" id="tab_style_id">
+									<div class="sh_theme_design collapsed" t-on-click="_click_sh_theme_design" type="button"
+                     data-toggle="collapse"
+                     data-target="#sh_color_plt" aria-expanded="true" aria-controls="filterFav">
+										<span class="title_config">Tab Style</span>
+									</div>
+									<div class="sh_plates collapse" id="sh_color_plt">
+										<div class="sh_style_plates_main sh_style_plates">
+										<!--  theme style plates -->
+											<div></div>
+											<div class="sh_main_div">
+												<t t-foreach="['style_1', 'style_2', 'style_3', 'style_4', 'style_5', 'style_6', 'style_7']" t-as="style" t-key="style">
+														<li class="sh_div_plt">
+															<div
+																class="sh_plates_items theme_style_box"
+																t-att-id="style"
+																t-on-click="onSelectHorizontalTabStyle">
+																<input
+																	type="radio"
+																	name="tab_style"
+																	t-att-checked="state.horizontal_tab_style === style"
+																/>
+																<span class="circle fa fa-check"></span>
+																<div class="sh_style_box" t-att-class="'sh_form_element_box_' + style.split('_')[1]">
+																	<img
+																		t-att-src="'/sh_backmate_theme_adv/static/src/img/tab_style/' + style.split('_')[1] + '.svg'"
+																	/>
+																</div>
+															</div>
+														</li>
+													</t>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="sh_theme_setting_feature" id="form_element_style_id">
+									<div class="sh_theme_design collapsed" t-on-click="_click_sh_theme_design" type="button"
+                     data-toggle="collapse"
+                     data-target="#sh_color_plt" aria-expanded="true" aria-controls="filterFav">
+										<span class="title_config">Form Element Style</span>
+									</div>
+									<div class="sh_plates collapse" id="sh_color_plt">
+										<div class="sh_style_plates_main sh_style_plates">
+										<!--  theme style plates -->
+											<div></div>
+											<div class="sh_main_div">
+												<t t-foreach="['style_1', 'style_2', 'style_3', 'style_4', 'style_5', 'style_6', 'style_7', 'style_8']" t-as="style" t-key="style">
+														<li class="sh_div_plt">
+															<div
+																class="sh_plates_items theme_style_box"
+																t-att-id="style"
+																t-on-click="onSelectFormElementStyle">
+																<input
+																	type="radio"
+																	name="form_element_style"
+																	t-att-checked="state.form_element_style === style"
+																/>
+																<span class="circle fa fa-check"></span>
+																<div class="sh_style_box" t-att-class="'sh_form_element_box_' + style.split('_')[1]">
+																	<img
+																		t-att-src="'/sh_backmate_theme_adv/static/src/img/form_element_style/' + style.split('_')[1] + '.svg'"
+																	/>
+																</div>
+															</div>
+														</li>
+													</t>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="sh_theme_setting_feature" id="breadcrumbs_style_id">
+									<div class="sh_theme_design collapsed" t-on-click="_click_sh_theme_design" type="button" data-toggle="collapse"
+									data-target="#sh_color_plt" aria-expanded="true" aria-controls="filterFav">
+										<span class="title_config">Breadcrumb Style</span>
+									</div>
+									<div class="sh_plates collapse" id="sh_color_plt">
+										<div class="sh_style_plates_main sh_style_plates">
+										<!--  theme style plates -->
+											<div></div>
+											<div class="sh_main_div">
+												<li t-foreach="['style_1', 'style_2', 'style_3', 'style_4', 'style_5', 'style_6', 'style_7']"
+													t-as="style" t-key="style" class="sh_div_plt">
+													<div class="sh_plates_items theme_style_box"
+														 t-att-id="style"
+														 t-on-click="onSelectBreadcrumbStyle">
+														<input type="radio" name="breadcrumbs_style"
+															   t-att-checked="state.breadcrumb_style == style" />
+														<span class="circle fa fa-check"></span>
+														<div class="sh_style_box sh_breadcrumbs_box" t-att-class="'sh_breadcrumbs_box_' + style.split('_')[1]">
+															<img t-att-src="'/sh_backmate_theme_adv/static/src/img/breadcrumbs_style/' + style.split('_')[1] + '.svg'" />
+														</div>
+													</div>
+												</li>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="sh_theme_setting_feature" id="color_list_id">
+									<div class="sh_theme_design collapsed" t-on-click="_click_sh_theme_design" type="button"
+                     data-toggle="collapse" data-target="#searchStyle" aria-expanded="true" aria-controls="filterFav">
+										<span class="title_config">Search Style</span>
+									</div>
+									<div class="sh_plates collapse" id="searchStyle">
+										<table width="100%">
+											<tbody>
+												<tr>
+													<td>
+														<label>Search Style</label>
+													</td>
+													<td>
+														<div class="d-flex o_horizontal" role="radiogroup">
+															<div class="form-check o_radio_item me-3">
+																<input type="radio"
+																	   class="form-check-input o_radio_input me-2"
+																	   id="search_collapsed" name="search_style"
+																	   value="collapsed"
+																	   t-model="state.search_style"
+																	   t-att-checked="state.search_style == 'collapsed'"/>
+																<label class="form-check-label o_form_label"
+																	   for="search_collapsed">Collapsed </label>
+															</div>
+															<div class="form-check o_radio_item">
+																<input type="radio"
+																	   class="form-check-input o_radio_input me-2"
+																	   id="search_expanded" name="search_style"
+																	   value="expanded"
+																	   t-model="state.search_style"
+																	   t-att-checked="state.search_style == 'expanded'"/>
+																<label class="form-check-label o_form_label"
+																	   for="search_expanded">Expanded </label>
+															</div>
+														</div>
+													</td>
+													<td></td>
+													<td></td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+								<div class="sh_theme_setting_feature" id="radio_button_style_id">
+									<div class="sh_theme_design collapsed" t-on-click="_click_sh_theme_design" type="button" data-toggle="collapse"
+                     					data-target="#sh_color_plt" aria-expanded="true" aria-controls="filterFav">
+										<span class="title_config">Radio Button Style</span>
+									</div>
+									<div class="sh_plates collapse" id="sh_color_plt">
+										<div class="sh_style_plates_main sh_style_plates">
+											<div class="sh_main_div">
+												<li t-foreach="['style_1', 'style_2', 'style_3', 'style_4']" t-as="style" t-key="style" class="sh_div_plt">
+													<div class="sh_plates_items theme_style_box"
+														t-att-id="style"
+														t-on-click="onSelectRadioBtnStyle">
+														<input type="radio" name="radio_button_style"
+															t-att-checked="state.radio_btn_style == style" />
+														<span class="circle fa fa-check"></span>
+														<div class="sh_style_box sh_radio_button_box" t-att-class="'sh_radio_button_box_' + style.split('_')[1]">
+															<img t-att-src="'/sh_backmate_theme_adv/static/src/img/radio_button_style/' + style.split('_')[1] + '.svg'" />
+														</div>
+													</div>
+												</li>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="sh_theme_setting_feature" id="check_box_style_id">
+									<div class="sh_theme_design collapsed" t-on-click="_click_sh_theme_design" type="button"
+                     data-toggle="collapse"
+                     data-target="#sh_color_plt" aria-expanded="true" aria-controls="filterFav">
+										<span class="title_config">Checkbox Style</span>
+									</div>
+									<div class="sh_plates collapse" id="sh_color_plt">
+										<div class="sh_style_plates_main sh_style_plates">
+										<!--  theme style plates -->
+											<div></div>
+											<div class="sh_main_div">
+												<input type="hidden" class="current_active_style" value="style_2"/>
+												<input type="hidden" class="current_active_style_pallete"/>
+												<li t-foreach="['style_1', 'style_2', 'style_3', 'style_4']" t-as="style" t-key="style" class="sh_div_plt">
+													<div class="sh_plates_items theme_style_box"
+														 t-att-id="style"
+														 t-on-click="onSelectCheckboxStyle">
+														<input type="radio" name="checkbox_style"
+															   t-att-checked="state.checkbox_style == style"/>
+														<span class="circle fa fa-check"></span>
+														<div class="sh_style_box sh_checkbox_box" t-att-class="'sh_checkbox_box_' + style.split('_')[1]">
+															<img t-att-src="'/sh_backmate_theme_adv/static/src/img/check_box_style/' + style.split('_')[1] + '.svg'"></img>
+														</div>
+													</div>
+												</li>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="sh_theme_setting_feature" id="scrollbar_style_id">
+									<div class="sh_theme_design collapsed" t-on-click="_click_sh_theme_design"
+										 type="button"
+										 data-toggle="collapse"
+										 data-target="#sh_color_plt" aria-expanded="true" aria-controls="filterFav">
+										<span class="title_config">Scrollbar Style</span>
+									</div>
+									<div class="sh_plates collapse" id="sh_color_plt">
+										<div class="sh_style_plates_main sh_style_plates">
+										<!--  theme style plates -->
+											<div class="sh_main_div">
+												<li t-foreach="['style_1', 'style_2', 'style_3', 'style_4', 'style_5']" t-as="style" t-key="style" class="sh_div_plt">
+													<div class="sh_plates_items theme_style_box"
+														 t-att-id="style"
+														 t-on-click="onSelectScrollbarStyle">
+														<input type="radio" name="scrollbar_style"
+															   t-att-checked="state.scrollbar_style == style"/>
+														<span class="circle fa fa-check"></span>
+														<div class="sh_style_box sh_scrollbar_box" t-att-class="'sh_scrollbar_box_' + style.split('_')[1]">
+															<img t-att-src="'/sh_backmate_theme_adv/static/src/img/scrollbar_style/' + style.split('_')[1] + '.svg'"></img>
+														</div>
+													</div>
+												</li>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="sh_theme_setting_feature" id="icon_style_id">
+									<div class="sh_theme_design" t-on-click="_click_sh_theme_design" data-toggle="collapse"
+                     				data-target="#themeColors" aria-expanded="true" aria-controls="filterFav">
+										<span class="title_config">App Icon</span>
+									</div>
+									 <div class="sh_plates collapse" id="themeColors">
+										<div class="sh_color_plates">
+										<!--  Color Plates -->
+											<div></div>
+											<div class="sh_style_plates_main sh_style_plates">
+										<div class="sh_main_div">
+										<li t-foreach="['standard', 'line_icon', 'three_d', 'dual_tone', 'glass_icon', 'light_icon']"
+											t-as="style" t-key="style" class="sh_div_plt">
+											<div class="sh_plates_items theme_style_box" t-att-id="style" t-on-click="handleIconStyleChange">
+												<input
+														type="radio"
+														name="app_icon_style"
+														t-att-value="style"
+														t-att-checked="state.appIconStyle === style"/>
+												<span class="circle fa fa-check"></span>
+												<div class="sh_style_box sh_app_icon_box sh_app_icon_box_1" t-att-class="'sh_app_icon_box_' + style">
+													<t t-if="style == 'three_d'">
+														<img t-att-src="'/sh_backmate_theme_adv/static/src/img/app_icon_style/' + style + '.png'"/>
+													</t>
+													<t t-else="">
+														<img t-att-src="'/sh_backmate_theme_adv/static/src/img/app_icon_style/' + style + '.svg'"/>
+													</t>
+
+												</div>
+											</div>
+										</li>
+										</div>
+									</div>
+										</div>
+										 <div t-if="state.isDualTone">
+										<table width="100%">
+											<tr>
+												<td><label class="sh_config_dt_label">Dual Tone Icon Color 1</label></td>
+												<td><input id="dual_tone_icon_color_1" t-on-change="on_change_dual_tone_icon_color_1" type="color" t-att-value="state.dual_tone_icon_color_1" /></td>
+												<td><label class="sh_config_dt_label">Dual Tone Icon Color 2</label></td>
+												<td><input id="dual_tone_icon_color_2" type="color" t-on-change="on_change_dual_tone_icon_color_2" t-att-value="state.dual_tone_icon_color_2"/></td>
+											</tr>
+										</table>
+									</div>
+									 </div>
+								</div>
+								<div class="sh_theme_setting_feature" id="font_icon_style_id">
+									<div class="sh_theme_design" t-on-click="_click_sh_theme_design" data-toggle="collapse"
+                     data-target="#themeColors" aria-expanded="true" aria-controls="filterFav">
+										<span class="title_config">Backend Font Icon Style</span>
+									</div>
+									<div class="sh_plates collapse" id="themeColors">
+										<div class="sh_style_plates_main sh_color_plates">
+										<!--  Color Plates -->
+											<div></div>
+											<div class="sh_main_div">
+												<li t-foreach="['style_1', 'style_2', 'style_3', 'style_4']"
+													t-as="style" t-key="style" class="sh_div_plt">
+													<div class="sh_plates_items theme_style_box"
+														 t-att-id="style"
+														 t-on-click="onSelectFontIconStyle">
+														<input type="radio" name="font_icon_style"
+															   t-att-checked="state.backend_all_icon_style == style" />
+														<span class="circle fa fa-check"></span>
+														<div class="sh_style_box sh_backend_app_icon sh_breadcrumbs_box" t-att-class="'sh_breadcrumbs_box_' + style.split('_')[1]">
+															<img t-att-src="'/sh_backmate_theme_adv/static/src/img/font_icon_style/' + style.split('_')[1] + '.svg'" />
+														</div>
+													</div>
+												</li>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="py-3">
+									<button type="button" t-on-click="_click_save_color" class="btn btn-primary save_color me-3 ">Save</button>
+									<button type="button" t-on-click="_click_close_setting"
+                                            class="btn btn-secondary discard_color me-3">Discard</button>
+								</div>
+							</div>
+						<!--</DropdownItem>-->
+						<!--<t
+						t-foreach="getElements()" t-as="element" t-key="element_index"><t
+						t-if="!element.hide"><DropdownItem
+                                    t-if="element.type == 'item' || element.type == 'switch'"
+                                    attrs="{ href: element.href, 'data-menu': element.id }"
+                                    onSelected="element.callback"><CheckBox
+                                        t-if="element.type == 'switch'"
+                                        value="element.isChecked"
+                                        className="'form-switch d-flex flex-row-reverse justify-content-between p-0 w-100'"
+                                        onChange="element.callback"
+                                    ><t t-out="element.description"/></CheckBox><t t-else=""
+						t-out="element.description"/></DropdownItem><div t-if="element.type ==
+						'separator'" role="separator" class="dropdown-divider"/></t></t>-->
+					</t>
+				</Dropdown>
+			<!--</DropdownGroup>-->
+		</div>
+	</t>
+</templates>

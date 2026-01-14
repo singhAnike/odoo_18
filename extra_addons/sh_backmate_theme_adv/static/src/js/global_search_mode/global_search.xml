@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<templates id="template" xml:space="preserve">
+
+	<t t-name="sh_backmate_theme_adv.GlobalSearch">
+		<t t-if="sh_enable_gloabl_search_mode">
+			<div class="sh_search">
+				<div class="sh_search_container form-row align-items-center">
+					<div class="sh_search_input">
+						<div class="input-group">
+							<input type="text" placeholder="Search ..." class="usermenu_search_input form-control" style="display:none;" t-on-keydown="_searchData" t-model="state.query" aria-label="Search input"/>
+							<input type="text" placeholder="Search ..." class="usermenu_search_input2 form-control" t-on-keydown="_searchData" t-model="state.query" aria-label="Search input"/>
+							<div class="input-group-prepend m-0">
+								<div class="input-group-text">
+									<span class="icon-search fa fa-search" id="topbar_search_icon"></span>
+									<span class="icon-search fa fa-search" id="topbar_full_search_icon" t-on-click="_onclick_search_top_bar"></span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="sh_search_results col-md-10 ml-auto mr-auto" >
+					<div t-if="state.query">
+						<t t-if="state.hasResults">
+							<t t-foreach="state.results" t-as="result" t-key="result.id">
+								<a t-attf-class="dropdown-item col-12 ml-auto mr-auto" target="_blank" t-attf-href="#{result.href}">
+									<t t-esc="result.name"/>
+								</a>
+							</t>
+						</t>
+						<t t-else="">
+							<p class="text-center pt-5">No results found</p>
+						</t>
+						</div>
+					</div>
+				</div>
+			</div>
+		</t>
+	</t>
+
+</templates>

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="school_parent_portal.ParentDashboard" owl="1">
+        <div class="o_parent_dashboard min-vh-100 font-sans position-relative overflow-hidden" t-ref="root" style="background-color: #F3F4F6;">
+            
+            <!-- Ambient Background Elements -->
+            <div class="position-fixed top-0 start-0 w-100 h-100 overflow-hidden pe-none" style="z-index: 0; opacity: 0.5;">
+                <div class="blob blob-rose" style="top: -10%; right: -10%;"></div>
+                <div class="blob blob-orange" style="top: 20%; left: -10%;"></div>
+            </div>
+
+            <!-- Header -->
+            <!-- Header Removed -->
+            <!-- <header class="sticky-top bg-white-80 backdrop-blur-md border-bottom border-light shadow-sm transition-all" style="z-index: 1020;">
+                
+            </header> -->
+
+            <!-- Main Content -->
+            <main class="mw-md mx-auto px-4 py-5 d-flex flex-column gap-5 position-relative" style="z-index: 1;">
+                
+                <!-- 1. Carousel Section -->
+                <div t-att-class="'position-relative w-100 rounded-4 overflow-hidden shadow-card border-white-20 transition-all transform ' + (state.mounted ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0')"
+                     style="aspect-ratio: 16/9; transition-duration: 700ms;">
+                     
+                     <div class="d-flex h-100 transition-transform duration-700" 
+                          t-attf-style="transform: translateX(calc(-{{state.currentIndex * 100}}% + {{state.currentTranslate}}px)); width: 100%; cursor: {{state.isDragging ? 'grabbing' : 'grab'}};"
+                          t-on-mousedown="onMouseDown"
+                          t-on-mousemove="onMouseMove"
+                          t-on-mouseup="onMouseUp"
+                          t-on-mouseleave="onMouseLeave"
+                          t-on-touchstart="onTouchStart"
+                          t-on-touchmove="onTouchMove"
+                          t-on-touchend="onTouchEnd">
+                        <t t-foreach="announcements" t-as="slide" t-key="slide.id">
+                            <div class="min-w-100 h-100 position-relative group">
+                                <img t-att-src="slide.image" class="w-100 h-100 object-fit-cover transition-transform duration-700 group-hover-scale-105" alt="Slide" draggable="false" />
+                                <div class="position-absolute inset-0 bg-gradient-overlay"></div>
+                                <div class="position-absolute bottom-0 start-0 w-100 p-4 bg-gradient-to-t from-black-80 to-transparent">
+                                    <span class="badge bg-warning text-dark fw-bold mb-2 text-uppercase tracking-wider px-2 py-1 rounded-sm"><t t-esc="slide.type"/></span>
+                                    <h3 class="text-white fw-bold mb-0 text-shadow-sm"><t t-esc="slide.title"/></h3>
+                                </div>
+                            </div>
+                        </t>
+                     </div>
+                     
+                     <!-- Dots -->
+                     <div class="position-absolute bottom-0 end-0 p-3 d-flex gap-2 z-10">
+                        <t t-foreach="announcements" t-as="slide" t-key="slide.index">
+                            <div t-att-class="'rounded-pill transition-all shadow-sm ' + (state.currentIndex === slide_index ? 'bg-white w-6' : 'bg-white-50 w-1-5 hover-bg-white-70')"
+                                 style="height: 4px;"></div>
+                        </t>
+                     </div>
+                </div>
+
+                <!-- 2. Notices (Scrolling Marquee) -->
+                <div t-att-class="'bg-white rounded-4 p-1 shadow-sm border border-white-50 overflow-hidden transition-all transform ' + (state.mounted ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0')"
+                     style="transition-duration: 700ms; transition-delay: 150ms;">
+                     <div class="bg-amber-50 rounded-3 px-3 py-3 d-flex align-items-center border border-amber-100 position-relative">
+                        <!-- Icon -->
+                        <div class="bg-warning text-white p-2 rounded-circle flex-shrink-0 z-10 me-3 shadow-sm d-flex align-items-center justify-content-center" style="width: 32px; height: 32px;">
+                            <i class="fa fa-bullhorn small"></i>
+                        </div>
+                        
+                        <!-- Scrolling Container -->
+                        <div class="flex-grow-1 overflow-hidden position-relative d-flex align-items-center" style="height: 24px;">
+                            <div class="d-flex animate-infinite-scroll text-dark fw-bold small text-nowrap">
+                                <!-- Original Set -->
+                                <div class="d-flex flex-shrink-0">
+                                    <t t-foreach="notices" t-as="notice" t-key="notice_index">
+                                        <span class="me-5 d-inline-block"><t t-esc="notice"/></span>
+                                    </t>
+                                </div>
+                                <!-- Duplicate Set for Seamless Loop -->
+                                <div class="d-flex flex-shrink-0" aria-hidden="true">
+                                    <t t-foreach="notices" t-as="notice" t-key="notice_index">
+                                        <span class="me-5 d-inline-block"><t t-esc="notice"/></span>
+                                    </t>
+                                </div>
+                            </div>
+                        </div>
+                     </div>
+                </div>
+
+                <!-- 3. Quick Access (Grid) -->
+                <section t-att-class="'bg-white rounded-5 p-4 shadow-card border border-white-50 transition-all transform ' + (state.mounted ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0')"
+                         style="transition-duration: 700ms; transition-delay: 300ms;">
+                    <div class="d-flex align-items-center justify-content-start gap-2 mb-4">
+                        <h3 class="h5 fw-bold text-dark m-0 tracking-tight">
+                            Quick Access
+                        </h3>
+                        <span class="rounded-circle bg-danger" style="width: 6px; height: 6px; margin-top: 4px;"></span>
+                    </div>
+
+                    <div class="d-grid grid-cols-4 gap-y-4 gap-x-2">
+                        <t t-foreach="modules" t-as="module" t-key="module.id">
+                            <button class="btn border-0 p-0 d-flex flex-column align-items-center gap-2 group bg-transparent" t-on-click="() => this.openModule(module)">
+                                <!-- Icon Box -->
+                                <div class="icon-box-pink rounded-4 d-flex align-items-center justify-content-center transition-all group-hover-scale shadow-sm-hover overflow-hidden p-2">
+                                    <t t-if="module.image">
+                                        <img t-att-src="module.image" class="w-100 h-100 object-fit-contain transition-transform group-hover-up" t-att-alt="module.title"/>
+                                    </t>
+                                    <t t-else="">
+                                        <i t-att-class="'fa ' + module.icon + ' text-rose-600 fa-lg transition-transform group-hover-up'"></i>
+                                    </t>
+                                </div>
+                                <span class="small fw-bold text-muted text-center lh-1 group-hover-text-dark transition-colors module-text">
+                                    <t t-esc="module.title"/>
+                                </span>
+                            </button>
+                        </t>
+                    </div>
+                </section>
+
+            </main>
+        </div>
+    </t>
+</templates>

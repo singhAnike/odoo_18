@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Use the existing Parent category from openeducat_parent module -->
+    <record id="group_school_parent_user" model="res.groups">
+        <field name="name">School Parent</field>
+        <field name="category_id" ref="openeducat_parent.module_category_openeducat_parent"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        <field name="comment">Users in this group will only see the Parent Portal dashboard.</field>
+    </record>
+</odoo>

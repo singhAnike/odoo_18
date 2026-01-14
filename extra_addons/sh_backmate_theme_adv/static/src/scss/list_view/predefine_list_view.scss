@@ -1,0 +1,352 @@
+@if $predefined_list_view_boolean == "False"{
+	@if $list_view_border == 'bordered'{
+        .o_list_table_ungrouped{
+            tbody{
+                td{
+                    border-right:1px solid #a09e9e;
+                }
+            } 
+            th{
+                border-right:1px solid #a09e9e;
+            }
+        }
+	}
+	@if $list_view_border == 'without_border'{
+	    .o_list_view{
+            .o_list_table{
+                th{border-left: 0px !important;}
+            } 
+        } 
+	}
+	.o_list_table_ungrouped{
+        --table-bg: transparent !important;
+        tbody{
+            tr{
+                &:nth-of-type(odd){
+                    background-color:$list_view_odd_row_color!important;
+                }
+                &:nth-of-type(even){
+                    background:$list_view_even_row_color!important;
+                }
+            }
+        }
+    }  
+    @if $list_view_is_hover_row == "True"{
+        .o_list_table{
+            tbody{
+                tr{
+                    &:hover{
+                        background:$list_view_hover_bg_color !important;color: #fff !important;
+                    }
+                }
+            }
+        }
+    }
+    @if $list_view_is_hover_row != "True"{
+        table.o_list_table{
+            --table-hover-bg: unset !important;
+            tbody{
+                tr{
+                    &:nth-of-type(odd){
+                        &:hover{
+                            --table-hover-bg: unset !important;--table-accent-bg: unset !important;background-color:$list_view_odd_row_color!important;
+                        }
+                    }
+                    &:nth-of-type(even){
+                        &:hover{
+                            --table-hover-bg: unset !important;--table-accent-bg: unset !important;background-color:$list_view_even_row_color!important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@if $predefined_list_view_boolean =="True" {
+    @if $predefined_list_view_style =='style_1' {
+        .table-responsive {
+            .o_list_table {
+                border-collapse: unset !important;border-spacing: 2px 0px !important;
+                thead {
+                    tr {
+                        &:nth-child(1) {
+                            th {
+                                border-left: 0 !important;
+                            }
+                        }
+                    }
+                }
+                tbody {
+                    tr {
+                        &:nth-of-type(even) {
+                            --table-bg: #fff !important;
+                        }
+                        td {
+                            border-right: none !important;border-bottom-width: 1px !important;
+                        }
+                    }
+                }
+                &.table-hover {
+                    tbody {
+                        tr {
+                            &:hover {
+                                --table-hover-bg: #d4e4f8 !important;--table-hover-color: black;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    @if $predefined_list_view_style =='style_2' {
+        .table-responsive {
+            .o_list_table {
+                border-collapse: unset !important;border-spacing: 2px 2px !important;
+                tr {
+                    border: none !important;
+                    td {
+                        border-bottom-width: 1px !important;border-color: #cacaca !important;border-bottom-style: solid !important;border-top: 0 !important;
+                    }
+                }
+                thead {
+                    tr {
+                        &:nth-child(1) {
+                            th {
+                                border-left: 0 !important;border-bottom: 0 !important;
+                            }
+                        }
+                    }
+                }
+                tbody {
+                    td {
+                        border-right: none !important;
+                    }
+                    tr {
+                        &:nth-of-type(odd) {
+                            &:hover {
+                                --table-bg: #ececec !important;
+                            }
+                        }
+                        &:nth-of-type(even) {
+                            &:hover {
+                                td {
+                                    --table-bg: #ececec !important;
+                                }
+                            }
+                            --table-bg: #ececec !important;
+                        }
+                    }
+                }
+                &.table-hover {
+                    tbody {
+                        tr {
+                            &:nth-of-type(odd) {
+                                &:hover {
+                                    td {
+                                        --table-bg: #ececec !important;
+                                    }
+                                }
+                            }
+                            &:nth-of-type(even) {
+                                --table-bg: #eef1fc !important
+                            }
+                            &:hover {
+                                --table-hover-bg: #d4e4f8 !important;--table-hover-color: black;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    @if $predefined_list_view_style =='style_3' {
+        .table-responsive {
+            .o_list_table {
+                border-collapse: unset !important;border-spacing: 2px 2px !important;
+                thead {
+                    tr {
+                        th {
+                            border-width: 0 1px 1px !important;border-color: #cacaca !important;border-style: solid !important;
+                        }
+                    }
+                }
+                tbody {
+                    tr {
+                        &:nth-of-type(even) {
+                            --table-bg: #ffffff !important;
+                        }
+                    }
+                }
+                tr {
+                    border: none !important;
+                    td {
+                        border-width: 0 1px !important;border-color: #cacaca !important;border-style: solid !important;
+                    }
+                }
+                &.table-hover {
+                    tbody {
+                        tr {
+                            &:hover {
+                                --table-hover-bg: #d4e4f8 !important;--table-hover-color: black;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    @if $predefined_list_view_style =='style_4' {
+        .table-responsive {
+            .o_list_table {
+                text-align: center;
+                tr {
+                    border: none !important;
+                }
+                thead {
+                    tr {
+                        .o_list_sortable_caret {
+                            background-color: transparent !important;
+                        }
+                        &:nth-child(1) {
+                            th {
+                                border-bottom: 2px solid #eceffa;border-color: #eceffa !important;color: $primaryColor !important;background-color: #fff;border-left: 0 !important;border-bottom: 2px solid #f8f9fd !important;
+                            }
+                        }
+                        &:nth-child(1) {
+                            th.o_list_record_selector {
+                                .o-checkbox.form-check {
+                                    [type='checkbox'] {
+                                        &:checked {
+                                            + {
+                                                label {
+                                                    &:not(.lever) {
+                                                        &:before {
+                                                            border-top: 2px solid transparent;border-right: 2px solid #ffff;border-bottom: 2px solid #ffff;border-left: 2px solid transparent;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        + {
+                                            label {
+                                                &:not(.lever) {
+                                                    &:before {
+                                                        border-color: #fff !important;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            th {
+                                border-bottom: 2px solid #eceffa;border-color: #eceffa !important;background-color: $primaryColor;color: #fff !important;border-left: 0 !important;border-bottom: 2px solid #f8f9fd !important;
+                            }
+                        }
+                    }
+                }
+                tbody {
+                    td {
+                        border-right: none !important;
+                        &:nth-of-type(odd) {
+                            background: #f1f4ff;border-bottom: 2px solid #eceffa;
+                        }
+                        &:nth-of-type(even) {
+                            border-bottom: 2px solid #f8f9fd;text-align: left !important;
+                        }
+                    }
+                }
+                &.table-hover {
+                    tbody {
+                        tr {
+                            &:hover {
+                                --table-hover-bg: #d4e4f8 !important;--table-hover-color: black;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .o_list_table,.o_list_table.table-striped {
+            tr {
+                &:focus-within {
+                    --table-bg: transparent !important;
+                }
+            }
+        }
+    }
+    @if $predefined_list_view_style =='style_5' {
+        .table-responsive {
+            .o_list_table {
+                border-collapse: separate;border-spacing: 2px 2px;
+                thead {
+                    tr {
+                        &:nth-child(1) {
+                            th {
+                                border-left: 0 !important;--table-bg: transparent !important;
+                            }
+                        }
+                    }
+                }
+                tbody {
+                    tr {
+                        td {
+                            box-shadow: inset 0 0 6px rgba(10, 10, 10, 0.22);padding: 0.9rem 0.75rem !important; --table-bg: transparent !important;
+                        }
+                    }
+                }
+                &.table-hover {
+                    tbody {
+                        tr {
+                            &:hover {
+                                --table-hover-bg: #d4e4f8 !important;--table-hover-color: black;background: #d4e4f8;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }   
+}
+
+//    /*--list--*/
+//    @if $predefined_list_view_boolean == "False"{      
+//     .o_list_view {
+//        background-color: rgba(255, 255, 255, 0.6);
+//        thead {
+//           background-color: rgba(255, 255, 255, 0.6);
+//        }
+//     }
+//     .table-striped {
+//        tbody {
+//           tr {
+//              &:nth-of-type(odd) {
+//                 background-color: rgba(255, 255, 255, 0.6);
+//              }
+//           }
+//        }
+//     }
+//     .ui-sortable {
+//        tr {
+//           background-color: rgba(255, 255, 255, 0.6);
+//        }
+//     }
+//     .o_mail_thread {
+//        .o_thread_message.o_mail_not_discussion {
+//           background-color: rgba(255, 255, 255, 0) !important;
+//           border-bottom: 1px solid #9c9c9c;
+//        }
+//        .o_thread_date_separator {
+//           border-bottom: 1px solid #9c9c9c;
+//        }
+//     }
+//     .o_mail_activity {
+//        .o_thread_message.o_mail_not_discussion {
+//           background-color: rgba(255, 255, 255, 0) !important;
+//           border-bottom: 1px solid #9c9c9c;
+//        }
+//        .o_thread_date_separator {
+//           border-bottom: 1px solid #9c9c9c;
+//        }
+//     }
+// }

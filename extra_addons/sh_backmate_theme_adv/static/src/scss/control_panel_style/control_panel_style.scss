@@ -1,0 +1,24 @@
+.o_web_client {
+	.o_action_manager {
+		.o_control_panel {
+			.o_control_panel_actions{
+				@include media-breakpoint-down(lg) {
+					margin-top: 15px;
+				}
+			}
+			.o_searchview_facet_label{
+				background-color: $primaryColor !important;
+			}
+			.o_cp_searchview {
+				flex-wrap: nowrap;background: #fff;box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+				@extend .sh_btn_style;
+				.o_searchview {
+					border: 0px;padding: 5px 15px !important;
+				}
+				.o_searchview_dropdown_toggler{
+					box-shadow: none !important;background-color: transparent !important;border-color: transparent !important;
+				}
+			}
+		}
+	}
+}

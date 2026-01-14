@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_parent_dashboard_client" model="ir.actions.client">
+        <field name="name">Parent Portal</field>
+        <field name="tag">school_parent_portal.parent_dashboard</field>
+    </record>
+
+    <menuitem id="menu_school_parent_portal_root"
+              name="Parent Portal"
+              action="action_parent_dashboard_client"
+              web_icon="school_parent_portal,static/description/icon.png"
+              groups="school_parent_portal.group_school_parent_user"
+              sequence="1"/>
+</odoo>

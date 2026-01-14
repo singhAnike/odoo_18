@@ -1,0 +1,62 @@
+.o_main_navbar {
+    .o_menu_systray {
+        .todo_layout {    animation: leftScale 0.8s;
+			background: #fff;min-width: 420px;max-width: 420px;z-index: 10; position: fixed; top: 0;right: 0;bottom: 0;box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);padding: 0.9rem;
+			@include media-breakpoint-down(md) {
+				min-width: 350px;max-width: 350px;
+			}
+			&.sh_theme_model{
+				display: block;margin-right: 0px;    transition: all ease-in-out 0.5s;
+			}
+            .theme_header {
+                display: -webkit-box;display: -webkit-flex;display: flex;justify-content: space-between;align-items: center;padding: 13px 20px;background-color: $primaryColor;color: #fff;box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);padding: 1.1rem;
+                h3 {
+                    margin-bottom: 0;color: #fff;font-weight: 600;
+                }
+                .close_todo_setting {
+                    cursor: pointer;
+                }
+            }
+            .add_todo_section {
+                padding: 10px 0px;
+                .sh_add_todo_input {
+                    padding: 7px 1.375rem !important;box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);height: auto !important;font-weight: 500;border-right: 0px;
+                }
+            }
+            .sh_main_card {
+                .card {
+                    background: #ebedf6;box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);padding: 1.1rem;margin-bottom: 15px;
+                    .sh-card-header {
+                        .sh_checkbox_todo {
+                            position: relative;
+                            &:hover {
+                                .sh_mark_completed_tooltip {
+                                    opacity: 1;top: 24px;
+                                }
+                            }
+                        }
+                        .sh_mark_save_tooltip,.sh_mark_remove_tooltip,.sh_mark_edit_tooltip,.sh_mark_completed_tooltip {
+                            opacity: 0;transition: all .5s;position: absolute;left: -10px;white-space: nowrap;padding: 2px 8px;font-size: 11px;top: 30px;background: $primaryColor;color: #ffffff;letter-spacing: .4px;border-radius: 3px;
+                        }
+                        .sh_to_do_save_btn,.sh_to_do_edit_btn,.sh_to_do_remove_btn {
+                            position: relative;
+                            &:hover {
+                                .sh_mark_save_tooltip,.sh_mark_edit_tooltip,.sh_mark_remove_tooltip {
+                                    opacity: 1;top: 24px;
+                                }
+                            }
+                        }
+                    }
+                    .card-body {
+                        padding: 10px !important;margin-bottom: 0px;margin-top: 15px;text-align: left;background-color: rgba(255, 255, 255, 0.9) !important;color: #000000;
+                        .sh_todo_label {
+                            &.sh_done_todo {
+                                text-decoration: line-through;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

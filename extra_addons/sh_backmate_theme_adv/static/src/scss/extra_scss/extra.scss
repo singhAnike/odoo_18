@@ -1,0 +1,19 @@
+body{
+	transition: all ease-in-out 0.3s;
+}
+.o_field_percent_pie {
+	.o_pie {
+		--PercentPieField-color-active: #{$primaryColor};
+	}
+}
+.o_form_view{
+	.o_form_uri {
+		color: $primaryColor !important;
+		> span:first-child {
+			color: $primaryColor !important;
+		}
+	}
+} 
+.o-mail-Discuss-headerActionsGroup{
+	background-color: transparent !important;
+}

@@ -1,0 +1,56 @@
+.o_action_manager {
+    .o_list_view {
+        .o_content {
+            .attachment_div {
+                height: 47px;width: 100%;
+                &::-webkit-scrollbar {
+                    height: 0px !important;
+                }
+                .sh_attachment_section {
+                    width: 100%;justify-content: center;
+                    @include media-breakpoint-down(lg) {
+                        flex-wrap: nowrap !important;overflow: auto;width: 100%;justify-content: start !important;
+                    }
+                    .attachment_box {
+                        padding: 5px;transition: .5s all; @extend .sh_btn_style;
+                        .o_image {
+                            width: 20px;height: 20px;
+                        }
+                        &:hover {
+                            border-color: $primaryColor !important;
+                        }
+                        &:not(.attachment_box_counter) .sh_attachment_name {
+                            white-space: nowrap !important;overflow: hidden;text-overflow: ellipsis;line-height: normal;width: 160px;
+                        }
+                        .sh_attachment_name {
+                            span {
+                                white-space: nowrap !important;overflow: hidden;text-overflow: ellipsis;line-height: normal;width: 150px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.attch-modal-content {
+    pointer-events: all;color: var(--biz-theme-body-text-color) !important;z-index: 1057;background-color: rgba(0, 0, 0, 0.7);
+    .o_viewer_zoomer {
+        background-color: #fff;height: calc(100vh - 10rem) !important;
+        .o_viewer_img {
+            background-color: black;max-height: 100%;
+        }
+        &:has(.o_viewer_img) {
+            background-color: transparent !important;
+        }
+    }
+    .arrow {
+        transform: translateY(-50%);width: 40px !important;height: 40px !important;background: #000;
+    }
+    .move_previous {
+        left: 15px !important;
+    }
+    .move_next {
+        right: 15px !important;
+    }
+}
