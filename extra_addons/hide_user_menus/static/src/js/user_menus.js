@@ -15,6 +15,6 @@ patch(UserMenu.prototype, {
         userMenuRegistry.remove("separator");
         userMenuRegistry.remove("odoo_account");
         userMenuRegistry.remove("install_pwa");
-        userMenuRegistry.remove("logout");
+        userMenuRegistry.remove("log_out");
     }
 });
