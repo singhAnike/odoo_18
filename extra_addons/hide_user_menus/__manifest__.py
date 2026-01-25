@@ -36,6 +36,7 @@
         - Shortcuts
         - Onboarding
         - My Odoo.com account
+        - Log Out
         
         This creates a cleaner and more focused user interface by removing unnecessary menu items.
     """,
