@@ -1,33 +1,50 @@
-# -*- coding: utf-8 -*-
+###############################################################################
+#
+#    OpenEduCat Inc
+#    Copyright (C) 2009-TODAY OpenEduCat Inc(<https://www.openeducat.org>).
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU Lesser General Public License as
+#    published by the Free Software Foundation, either version 3 of the
+#    License, or (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU Lesser General Public License for more details.
+#
+#    You should have received a copy of the GNU Lesser General Public License
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+###############################################################################
+
 {
-    'name': 'Hide User Menus (Top Right Corner)',
-    'author': 'Odoo Hub',
+    'name': 'Hide User Menus',
+    'version': '18.0.1.0',
+    'license': 'LGPL-3',
     'category': 'Tools',
-    'summary': 'This module hides the user menu from the top right corner of the Odoo interface, removing options like Documentation, Support, My Odoo.com account from the top right corner for a cleaner and more focused UI. Odoo Hub Apps remove top right menu Odoo remove toprightmenu Odoo remove top rightmenu Odoo remove top-right menu Odoo remove top-rightmenu Odoo remove right top menu Odoo remove top menu Odoo remove user menu Odoo Odoo remove menu items remove header menu Odoo remove menu icons Odoo hide user menu Odoo hide top right menu Odoo hide toprightmenu Odoo hide top-right menu Odoo hide top menu Odoo hide top right icons Odoo hide menu items Odoo hide Odoo top right menu hide right corner menu Odoo hide extra menu Odoo hide account menu Odoo clean ui Odoo clean user interface Odoo cleaninterface Odoo declutter ui Odoo declutter interface Odoo Odoo minimal UI minimal Odoo simplify Odoo interface streamline Odoo UI streamline user interface Odoo remove clutter Odoo simple UI Odoo Odoo remove unused menus Odoo UI customization Odoo UI cleanup Odoo hide default menu hide support menu Odoo hide onboarding menu Odoo hide documentation menu Odoo hide my odoo.com account Odoo hide my odoo account Odoo hide shortcuts menu Odoo remove support menu Odoo remove documentation menu Odoo remove onboarding menu Odoo remove my odoo.com Odoo remove shortcuts menu Odoo Odoo hide support and documentation menu Odoo remove support onboarding menu Odoo disable help menu items Odoo remove doc and shortcuts hide all user menu items Odoo Odoo user dropdown customization top right menu remover Odoo disable top user menu Odoo remove help links from Odoo hide all top menu Odoo ui customization menu cleanup user menu tweaks frontend tools non-technical easy to use enterprise compatible community support',
+    "sequence": 1,
+    'summary': 'Hide User Menus from Top Right Corner',
+    'complexity': 'easy',
+    'author': 'OpenEduCat Inc',
+    'website': 'https://www.openeducat.org',
     'description': """
-        This module modifies the Odoo user interface by removing or hiding elements in the top right user menu. 
-        The menu items that will be hidden include:
-        
+        This module modifies the Odoo user interface by hiding elements in the top right user menu,
+        including:
         - Documentation
         - Support
         - Shortcuts
         - Onboarding
         - My Odoo.com account
         
-        The main goal of this module is to streamline the user interface and make it less cluttered, particularly 
-        for users who do not need these features in their daily use.
+        This creates a cleaner and more focused user interface by removing unnecessary menu items.
     """,
-    'maintainer': 'Odoo Hub',
-    'website': 'https://apps.odoo.com/apps/modules/browse?author=Odoo%20Hub',
-    'version': '1.0',
     'depends': ['base', 'web'],
     'assets': {
         'web.assets_backend': [
             'hide_user_menus/static/src/js/user_menus.js',
         ],
     },
-    'images': ['static/description/banner.png'],
-    'live_test_url': 'https://youtu.be/IiCNMi-3bR4',
     'installable': True,
     'application': True,
     'auto_install': False,
