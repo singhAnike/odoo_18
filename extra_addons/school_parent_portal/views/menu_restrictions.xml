@@ -21,9 +21,9 @@
     </record>
 
     <!-- Hide Link Tracker - Admin only -->
-    <!-- <record id="link_tracker.menu_link_tracker" model="ir.ui.menu">
+    <record id="link_tracker.menu_link_tracker" model="ir.ui.menu">
         <field name="groups_id" eval="[(6, 0, [ref('base.group_system')])]"/>
-    </record> -->
+    </record>
 
     <!-- Hide Tests menu - Admin only -->
     <record id="base.menu_tests" model="ir.ui.menu">
