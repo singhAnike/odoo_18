@@ -7,14 +7,14 @@ import { useService } from "@web/core/utils/hooks";
 
 
 const MODULES = [
-    { id: 1, title: "Performance", icon: "fa-trophy", image: "/school_parent_portal/static/src/img/icons/performance.png" },
-    { id: 2, title: "Homework", icon: "fa-book", image: "/school_parent_portal/static/src/img/icons/homework.png" },
-    { id: 3, title: "LMS", icon: "fa-clock-o", image: "/school_parent_portal/static/src/img/icons/lms.png" },
-    { id: 4, title: "Fees", icon: "fa-credit-card", image: "/school_parent_portal/static/src/img/icons/fees.png" },
-    { id: 5, title: "GPS Track", icon: "fa-map-marker", image: "/school_parent_portal/static/src/img/icons/gps.png" },
-    { id: 6, title: "Transport", icon: "fa-bus", image: "/school_parent_portal/static/src/img/icons/transport.png" },
-    { id: 7, title: "Attendance", icon: "fa-calendar", image: "/school_parent_portal/static/src/img/icons/attendance.png" },
-    { id: 8, title: "More", icon: "fa-chevron-down", image: "/school_parent_portal/static/src/img/icons/more.png" },
+    { id: 1, title: "Performance", icon: "fa-trophy", image: "/school_parent_portal/static/src/img/icons/perfo_v1.png" },
+    { id: 2, title: "Homework", icon: "fa-book", image: "/school_parent_portal/static/src/img/icons/homework_v1.png" },
+    { id: 3, title: "LMS", icon: "fa-clock-o", image: "/school_parent_portal/static/src/img/icons/lms_v1.png" },
+    { id: 4, title: "Fees", icon: "fa-credit-card", image: "/school_parent_portal/static/src/img/icons/fees_v1.png" },
+    { id: 5, title: "GPS Track", icon: "fa-map-marker", image: "/school_parent_portal/static/src/img/icons/gps_v1.png" },
+    { id: 6, title: "Transport", icon: "fa-bus", image: "/school_parent_portal/static/src/img/icons/transport_v1.png" },
+    { id: 7, title: "Attendance", icon: "fa-calendar", image: "/school_parent_portal/static/src/img/icons/attendance_v1.png" },
+    { id: 8, title: "More", icon: "fa-chevron-down", image: "/school_parent_portal/static/src/img/icons/more_v1.png" },
 ];
 
 export class ParentDashboard extends Component {
