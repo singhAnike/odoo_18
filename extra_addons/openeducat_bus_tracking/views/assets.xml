@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Standalone template for Bus Tracking assets -->
+    <template id="assets_backend" name="Bus Tracking Assets">
+        <!-- Leaflet CSS -->
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"/>
+        
+        <!-- Module CSS -->
+        <link rel="stylesheet" href="/openeducat_bus_tracking/static/src/css/bus_tracking.css"/>
+        
+        <!-- Leaflet JS -->
+        <script type="text/javascript" src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+        
+        <!-- Module JS -->
+        <script type="text/javascript" src="/openeducat_bus_tracking/static/src/js/bus_tracking.js"></script>
+        <script type="text/javascript" src="/openeducat_bus_tracking/static/src/js/bus_tracking_map.js"></script>
+        <script type="text/javascript" src="/openeducat_bus_tracking/static/src/js/dashboard.js"></script>
+    </template>
+</odoo>

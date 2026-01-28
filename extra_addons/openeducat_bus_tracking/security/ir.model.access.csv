@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_openeducat_bus_tracking_gps_log_user,openeducat_bus_tracking.gps_log.user,model_openeducat_bus_tracking_gps_log,base.group_user,1,1,1,0
+access_openeducat_bus_tracking_gps_log_manager,openeducat_bus_tracking.gps_log.manager,model_openeducat_bus_tracking_gps_log,base.group_system,1,1,1,1

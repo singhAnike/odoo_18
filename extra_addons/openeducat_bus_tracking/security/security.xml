@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Record Rules -->
+    <record id="gps_log_rule_user" model="ir.rule">
+        <field name="name">GPS Log User Access</field>
+        <field name="model_id" ref="model_openeducat_bus_tracking_gps_log"/>
+        <field name="domain_force">['|', ('vehicle_id.driver_id.user_id', '=', user.id), ('vehicle_id.manager_id.user_id', '=', user.id)]</field>
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_unlink" eval="False"/>
+    </record>
+    
+    <record id="gps_log_rule_manager" model="ir.rule">
+        <field name="name">GPS Log Manager Access</field>
+        <field name="model_id" ref="model_openeducat_bus_tracking_gps_log"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+        <field name="groups" eval="[(4, ref('base.group_system'))]"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_unlink" eval="True"/>
+    </record>
+</odoo>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Actions should be in a separate file, typically in views/actions.xml -->
+    <!-- This file should only contain menu items -->
+    
+    <!-- Main Menu -->
+    <menuitem id="menu_bus_tracking_root"
+              name="GPS Tracking"
+              sequence="50"/>
+              
+    <!-- Child menus will be added here after their actions are created -->
+    <!-- 1. Map View menu will reference action_bus_tracking_map -->
+    <!-- 2. Vehicle List menu will reference action_fleet_vehicle_gps_list -->
+    <!-- 3. GPS Logs menu will reference action_gps_log -->
+    <!-- 4. Analytics menu with Dashboard submenu -->
+    <!-- 5. Configuration menu with Vehicles submenu -->
+</odoo>

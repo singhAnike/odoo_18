@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="openeducat_bus_tracking.MapView" owl="1">
+        <div class="o_bus_tracking_map_container" style="height: 100%; width: 100%;">
+            <div class="o_map_view" style="height: 100%; width: 100%;">
+                <div id="map" style="height: 100%; width: 100%;"></div>
+            </div>
+        </div>
+    </t>
+</templates>

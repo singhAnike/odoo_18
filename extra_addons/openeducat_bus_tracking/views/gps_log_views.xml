@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- GPS Log list View -->
+    <record id="view_gps_log_list" model="ir.ui.view">
+        <field name="name">openeducat_bus_tracking.gps_log.list</field>
+        <field name="model">openeducat_bus_tracking.gps_log</field>
+        <field name="arch" type="xml">
+            <list string="GPS Logs" decoration-success="speed == 0" decoration-danger="speed &gt; 80">
+                <field name="date" string="Date/Time"/>
+                <field name="vehicle_id" string="Vehicle"/>
+                <field name="speed" string="Speed (km/h)" class="text-right" widget="float" options="{'digits': [16, 1]}" />
+                <field name="latitude" string="Coordinates" widget="char" options="{'no_open': true, 'no_quick_edit': true}" />
+                <field name="longitude" string="Longitude" widget="float" options="{'digits': [16, 6]}" />
+                <field name="distance_today" string="Distance (km)" class="text-right" optional="show" widget="float" options="{'digits': [16, 2]}" />
+                <field name="engine_hours" string="Engine Hours" class="text-right" optional="show" widget="float" options="{'digits': [16, 1]}" />
+            </list>
+        </field>
+    </record>
+
+    <!-- GPS Log Form View -->
+    <record id="view_gps_log_form" model="ir.ui.view">
+        <field name="name">openeducat_bus_tracking.gps_log.form</field>
+        <field name="model">openeducat_bus_tracking.gps_log</field>
+        <field name="arch" type="xml">
+            <form string="GPS Log">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="display_name" class="o_field_char" readonly="1"/>
+                        </h1>
+                    </div>
+                    
+                    <group>
+                        <group>
+                            <field name="vehicle_id" required="1"/>
+                            <field name="date" required="1"/>
+                            <field name="speed" string="Speed (km/h)">
+                                <span class="o_stat_text">km/h</span>
+                            </field>
+                        </group>
+                        <group>
+                            <field name="latitude" required="1"/>
+                            <field name="longitude" required="1"/>
+                        </group>
+                    </group>
+                    
+                    <notebook>
+                        <page string="Additional Info">
+                            <group>
+                                <field name="engine_hours" string="Engine Hours">
+                                    <span class="o_stat_text">hours</span>
+                                </field>
+                                <field name="distance_today" string="Distance Today">
+                                    <span class="o_stat_text">km</span>
+                                </field>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- GPS Log Search View -->
+    <record id="view_gps_log_search" model="ir.ui.view">
+        <field name="name">openeducat_bus_tracking.gps_log.search</field>
+        <field name="model">openeducat_bus_tracking.gps_log</field>
+        <field name="arch" type="xml">
+            <search string="GPS Logs">
+                <field name="vehicle_id"/>
+                <field name="date" filter_domain="[('date', '&lt;=', context_today())]" string="Date"/>
+                <filter string="Today" name="today" domain="[('date', '&gt;=', context_today().replace(hour=0, minute=0, second=0)), ('date', '&lt;=', context_today().replace(hour=23, minute=59, second=59))]"/>
+                <filter string="This Week" name="this_week" domain="[('date', '&gt;=', (context_today() + relativedelta(days=-7)).strftime('%%Y-%%m-%%d'))]"/>
+                <separator/>
+                <group expand="0" string="Group By">
+                    <filter string="Vehicle" name="group_vehicle" context="{'group_by': 'vehicle_id'}"/>
+                    <filter string="Day" name="group_date" context="{'group_by': 'date:day'}"/>
+                    <filter string="Week" name="group_week" context="{'group_by': 'date:week'}"/>
+                    <filter string="Month" name="group_month" context="{'group_by': 'date:month'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- GPS Log Graph View -->
+    <record id="view_gps_log_graph" model="ir.ui.view">
+        <field name="name">openeducat_bus_tracking.gps_log.graph</field>
+        <field name="model">openeducat_bus_tracking.gps_log</field>
+        <field name="arch" type="xml">
+            <graph string="GPS Log Analysis" sample="1">
+                <field name="date" type="row" interval="day"/>
+                <field name="vehicle_id" type="col"/>
+                <field name="speed" type="measure" operator="avg"/>
+                <field name="distance_today" type="measure" operator="sum"/>
+                <field name="engine_hours" type="measure" operator="sum"/>
+            </graph>
+        </field>
+    </record>
+
+    <!-- GPS Log Pivot View -->
+    <record id="view_gps_log_pivot" model="ir.ui.view">
+        <field name="name">openeducat_bus_tracking.gps_log.pivot</field>
+        <field name="model">openeducat_bus_tracking.gps_log</field>
+        <field name="arch" type="xml">
+            <pivot string="GPS Log Pivot" sample="1">
+                <field name="date" type="row" interval="day"/>
+                <field name="vehicle_id" type="col"/>
+                <field name="speed" type="measure" operator="avg"/>
+                <field name="distance_today" type="measure" operator="sum"/>
+                <field name="engine_hours" type="measure" operator="sum"/>
+            </pivot>
+        </field>
+    </record>
+
+    <!-- Actions -->
+    <record id="action_gps_log" model="ir.actions.act_window">
+        <field name="name">GPS Logs</field>
+        <field name="res_model">openeducat_bus_tracking.gps_log</field>
+        <field name="view_mode">list,form,graph,pivot</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No GPS logs found. Let's create one!
+            </p>
+        </field>
+    </record>
+
+    <record id="action_gps_log_graph" model="ir.actions.act_window">
+        <field name="name">GPS Logs Analysis</field>
+        <field name="res_model">openeducat_bus_tracking.gps_log</field>
+        <field name="view_mode">graph,pivot,list,form</field>
+        <field name="view_id" ref="view_gps_log_graph"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No GPS logs found. Let's create one!
+            </p>
+        </field>
+    </record>
+</odoo>

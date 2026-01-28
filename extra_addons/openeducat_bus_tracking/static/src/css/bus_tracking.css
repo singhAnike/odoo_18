@@ -1,0 +1,183 @@
+/* Main Map Container */
+.o_bus_tracking_map_container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: #f8f9fa;
+    border-radius: 4px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+/* Map Header */
+.o_bus_tracking_map_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 16px;
+    background: #fff;
+    border-bottom: 1px solid #dee2e6;
+    z-index: 1000;
+}
+
+.o_bus_tracking_map_header h2 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #212529;
+}
+
+/* Map Controls */
+.o_bus_tracking_controls .btn-group {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.o_bus_tracking_controls .btn {
+    padding: 6px 12px;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    border-radius: 4px;
+    margin-right: 5px;
+}
+
+.o_bus_tracking_controls .btn:last-child {
+    margin-right: 0;
+}
+
+/* Map Element */
+#bus_tracking_map {
+    flex: 1;
+    min-height: 500px;
+    background: #e9ecef;
+}
+
+/* Map Legend */
+.o_bus_tracking_legend {
+    display: flex;
+    padding: 8px 16px;
+    background: #fff;
+    border-top: 1px solid #dee2e6;
+    font-size: 0.8rem;
+}
+
+.o_legend_item {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.o_legend_color {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    margin-right: 6px;
+    border: 2px solid #fff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.o_legend_moving {
+    background-color: #1a73e8; /* Blue for moving buses */
+}
+
+.o_legend_stopped {
+    background-color: #ea4335; /* Red for stopped buses */
+}
+
+.o_legend_inactive {
+    background-color: #9e9e9e; /* Gray for inactive buses */
+}
+
+/* Bus Marker Styling */
+.bus-marker-container {
+    text-align: center;
+    position: relative;
+}
+
+.bus-marker {
+    font-size: 24px;
+    position: relative;
+    z-index: 10;
+    text-shadow: 0 0 3px rgba(255, 255, 255, 0.8);
+}
+
+.bus-pulse {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    opacity: 0.6;
+    transform: scale(0);
+    animation: pulse 2s infinite;
+    z-index: 1;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(0.5);
+        opacity: 0.6;
+    }
+    70% {
+        transform: scale(1.5);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+}
+
+/* Popup Styling */
+.bus-popup {
+    min-width: 200px;
+    padding: 10px;
+}
+
+.bus-popup h4 {
+    margin: 0 0 10px 0;
+    font-size: 1rem;
+    color: #1a73e8;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+}
+
+.bus-info {
+    font-size: 0.85rem;
+}
+
+.bus-info div {
+    margin-bottom: 5px;
+}
+
+.bus-info strong {
+    color: #555;
+    margin-right: 5px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .o_bus_tracking_map_header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .o_bus_tracking_controls {
+        margin-top: 10px;
+        width: 100%;
+    }
+    
+    .o_bus_tracking_controls .btn-group {
+        width: 100%;
+        display: flex;
+    }
+    
+    .o_bus_tracking_controls .btn {
+        flex: 1;
+        text-align: center;
+    }
+    
+    #bus_tracking_map {
+        min-height: 400px;
+    }
+}

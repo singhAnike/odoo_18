@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Map View Template -->
+    <template id="bus_tracking_map_view" name="Bus Tracking Map View">
+        <t t-name="openeducat_bus_tracking.bus_tracking_map_view">
+            <div class="o_bus_tracking_container">
+                <div id="bus_tracking_map" style="width: 100%; height: 600px;"></div>
+                <div class="o_bus_tracking_controls">
+                    <button class="btn btn-primary o_zoom_in">Zoom In</button>
+                    <button class="btn btn-primary o_zoom_out">Zoom Out</button>
+                    <button class="btn btn-primary o_center_map">Center Map</button>
+                </div>
+                <div class="o_legend">
+                    <div class="o_legend_item">
+                        <div class="o_legend_color o_legend_moving"></div>
+                        <span>Moving</span>
+                    </div>
+                    <div class="o_legend_item">
+                        <div class="o_legend_color o_legend_stopped"></div>
+                        <span>Stopped</span>
+                    </div>
+                    <div class="o_legend_item">
+                        <div class="o_legend_color o_legend_inactive"></div>
+                        <span>Inactive</span>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

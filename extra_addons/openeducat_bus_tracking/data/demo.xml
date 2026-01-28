@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Sample Vehicles with GPS Data -->
+    <record id="demo_bus_1" model="fleet.vehicle">
+        <field name="name">School Bus 101</field>
+        <field name="license_plate">SCH-101</field>
+        <field name="model_id" ref="fleet.model_ford_taurus"/>
+        <field name="driver_id" ref="base.user_demo"/>
+        <field name="latitude">20.5937</field>
+        <field name="longitude">78.9629</field>
+        <field name="speed">45.5</field>
+        <field name="last_updated">2026-01-28 10:30:00</field>
+        <field name="last_location">Near Main School Gate</field>
+    </record>
+
+    <record id="demo_bus_2" model="fleet.vehicle">
+        <field name="name">School Bus 102</field>
+        <field name="license_plate">SCH-102</field>
+        <field name="model_id" ref="fleet.model_ford_taurus"/>
+        <field name="driver_id" ref="base.user_demo"/>
+        <field name="latitude">20.6037</field>
+        <field name="longitude">78.9729</field>
+        <field name="speed">0.0</field>
+        <field name="last_updated">2026-01-28 10:35:00</field>
+        <field name="last_location">At Bus Depot</field>
+    </record>
+
+    <!-- Sample GPS Logs -->
+    <record id="demo_gps_log_1" model="openeducat_bus_tracking.gps_log">
+        <field name="vehicle_id" ref="demo_bus_1"/>
+        <field name="date">2026-01-28 10:00:00</field>
+        <field name="latitude">20.5837</field>
+        <field name="longitude">78.9529</field>
+        <field name="speed">50.2</field>
+        <field name="engine_hours">1234.5</field>
+        <field name="distance_today">45.3</field>
+    </record>
+
+    <record id="demo_gps_log_2" model="openeducat_bus_tracking.gps_log">
+        <field name="vehicle_id" ref="demo_bus_1"/>
+        <field name="date">2026-01-28 10:15:00</field>
+        <field name="latitude">20.5887</field>
+        <field name="longitude">78.9579</field>
+        <field name="speed">48.7</field>
+        <field name="engine_hours">1234.8</field>
+        <field name="distance_today">67.8</field>
+    </record>
+
+    <record id="demo_gps_log_3" model="openeducat_bus_tracking.gps_log">
+        <field name="vehicle_id" ref="demo_bus_2"/>
+        <field name="date">2026-01-28 10:30:00</field>
+        <field name="latitude">20.6037</field>
+        <field name="longitude">78.9729</field>
+        <field name="speed">0.0</field>
+        <field name="engine_hours">987.2</field>
+        <field name="distance_today">0.0</field>
+    </record>
+</odoo>
